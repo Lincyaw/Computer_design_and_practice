@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module cpuclk(
     input clk_in1,
     output clk_out1

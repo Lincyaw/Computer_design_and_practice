@@ -1,9 +1,9 @@
 module ifetc32(
-
+    input clock,
+    input [31:0]PC,
+    output [31:0]Instruction
     );
-    wire clock;
-    wire [15:0]PC;
-    wire Instruction;
+
     //∑÷≈‰ 64KB ROM£¨
     prgrom instmem(
         .clka(clock), // input wire clka
