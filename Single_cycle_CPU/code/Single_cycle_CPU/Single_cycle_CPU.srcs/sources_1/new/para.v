@@ -15,5 +15,6 @@
 `define NOR 4'd9
 
 `define Jr 3'd0
-`define J_Jal 3'd0
-`define Beq_Bne_Bgtz 3'd0
+`define J_Jal 3'd1
+`define Beq_Bne 3'd2
+`define Bgtz 3'd3

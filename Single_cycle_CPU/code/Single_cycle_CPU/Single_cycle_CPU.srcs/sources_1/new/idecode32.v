@@ -5,6 +5,7 @@ module NPC(
     input [31:0]PC,
     input [31:0]Offset,
     input zero,
+    input pos,
     output [31:0]Npc
     );
     reg [31:0] pc_t;
@@ -18,8 +19,15 @@ module NPC(
             `J_Jal:begin
                 pc_t <= {4'b0,PC[25:0],2'b0};
             end
-            `Beq_Bne_Bgtz:begin
-                pc_t <= {14'b0,PC[15:0],2'b0};
+            `Beq_Bne:begin
+                if(zero)
+                    pc_t <= {14'b0,PC[15:0],2'b0};
+            end
+            `Bgtz:begin
+                if(pos)
+                begin
+                    pc_t <= {14'b0,PC[15:0],2'b0};
+                end
             end
             default: pc_t <= PC+4;
         endcase
