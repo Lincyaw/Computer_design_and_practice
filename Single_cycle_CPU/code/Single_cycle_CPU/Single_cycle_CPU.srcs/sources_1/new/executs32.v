@@ -14,18 +14,18 @@ reg zerog;
 assign zero = zerog;
 always@*
 begin
+    if (ans==0) begin
+        zerog = 1;
+    end
+    else begin
+        zerog = 0;
+    end
     case (op)
         `ADD:
             ans = first+second;
         `SUB:
         begin
             ans = first-second;
-            if (ans==0) begin
-                zerog = 1;
-            end
-            else begin
-                zerog = 0;
-            end
         end
         `SLL:
             ans = second<<first;
