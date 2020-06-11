@@ -1,2 +1,62 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module mycpu_tb.soc_lite.U9.instmem.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module mycpu_tb.soc_lite.U1.ram.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+        [      0 ns] Test is running, debug_wb_pc = 0x00000000
+==============================================================
+Test begin!
+        [   7060 ns] Test is running, debug_wb_pc = 0x00000004
+        [   7147 ns] Test is running, debug_wb_pc = 0x00000008
+        [   7233 ns] Test is running, debug_wb_pc = 0x0000000c
+        [   7320 ns] Test is running, debug_wb_pc = 0x00000010
+        [   7407 ns] Test is running, debug_wb_pc = 0x00000014
+        [   7494 ns] Test is running, debug_wb_pc = 0x00000018
+        [   7581 ns] Test is running, debug_wb_pc = 0x0000001c
+        [   7668 ns] Test is running, debug_wb_pc = 0x00000020
+        [   7755 ns] Test is running, debug_wb_pc = 0x00000024
+        [   7842 ns] Test is running, debug_wb_pc = 0x00000028
+        [   7929 ns] Test is running, debug_wb_pc = 0x0000002c
+        [   8016 ns] Test is running, debug_wb_pc = 0x00000030
+        [   8103 ns] Test is running, debug_wb_pc = 0x00000034
+        [   8190 ns] Test is running, debug_wb_pc = 0x00000038
+        [   8277 ns] Test is running, debug_wb_pc = 0x0000003c
+        [   8364 ns] Test is running, debug_wb_pc = 0x00000040
+        [   8451 ns] Test is running, debug_wb_pc = 0x00000044
+        [   8538 ns] Test is running, debug_wb_pc = 0x00000048
+        [   8625 ns] Test is running, debug_wb_pc = 0x0000004c
+        [   8712 ns] Test is running, debug_wb_pc = 0x00000050
+        [   8799 ns] Test is running, debug_wb_pc = 0x00000054
+        [   8886 ns] Test is running, debug_wb_pc = 0x00000058
+        [   8973 ns] Test is running, debug_wb_pc = 0x0000005c
+        [   9060 ns] Test is running, debug_wb_pc = 0x00000060
+        [   9147 ns] Test is running, debug_wb_pc = 0x00000064
+        [   9233 ns] Test is running, debug_wb_pc = 0x00000068
+        [   9320 ns] Test is running, debug_wb_pc = 0x0000006c
+        [   9407 ns] Test is running, debug_wb_pc = 0x00000070
+        [   9494 ns] Test is running, debug_wb_pc = 0x00000074
+        [   9581 ns] Test is running, debug_wb_pc = 0x00000078
+Warning : input CLKIN1 period and attribute CLKIN1_PERIOD on PLLE2_ADV instance mycpu_tb.soc_lite.U0.UCLK.inst.plle2_adv_inst are not same.
+        [   9668 ns] Test is running, debug_wb_pc = 0x0000007c
+        [   9755 ns] Test is running, debug_wb_pc = 0x00000080
+        [   9842 ns] Test is running, debug_wb_pc = 0x00000084
+        [   9929 ns] Test is running, debug_wb_pc = 0x00000088
+        [  10016 ns] Test is running, debug_wb_pc = 0x0000008c
+        [  10103 ns] Test is running, debug_wb_pc = 0x00000090
+        [  10190 ns] Test is running, debug_wb_pc = 0x00000094
+        [  10277 ns] Test is running, debug_wb_pc = 0x00000098
+        [  10364 ns] Test is running, debug_wb_pc = 0x0000009c
+        [  10451 ns] Test is running, debug_wb_pc = 0x000000a0
+        [  10538 ns] Test is running, debug_wb_pc = 0x000000a4
+        [  10625 ns] Test is running, debug_wb_pc = 0x000000a8
+        [  10712 ns] Test is running, debug_wb_pc = 0x000000ac
+        [  10799 ns] Test is running, debug_wb_pc = 0x000000b0
+        [  10886 ns] Test is running, debug_wb_pc = 0x000000b4
+        [  10973 ns] Test is running, debug_wb_pc = 0x000000b8
+        [  11060 ns] Test is running, debug_wb_pc = 0x000000bc
+        [  11147 ns] Test is running, debug_wb_pc = 0x000000c0
+        [  11233 ns] Test is running, debug_wb_pc = 0x000000c4
+        [  11320 ns] Test is running, debug_wb_pc = 0x0

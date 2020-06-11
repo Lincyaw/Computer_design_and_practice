@@ -31,13 +31,15 @@ module ram_sim( );
     dmemory32 Uram(read_data,address,write_data,Memwrite,clock);
 
     initial begin
-    #200 begin write_data = 32'hA00000F5;Memwrite = 1'b1; end
+    #200 begin write_data = 32'hA00000F5;Memwrite = 1'b1; address = 32'hA00000F5; end
+    #300 Memwrite = 1'b0;
+    #200 begin write_data = 32'hA00002F5;Memwrite = 1'b1; address = 32'hA00002F5; end
     #200 Memwrite = 1'b0;
-    #200 begin write_data = 32'hA02000F5;Memwrite = 1'b1; end
+    #200 begin write_data = 32'hA02023F5;Memwrite = 1'b0; address = 32'hA00000F5; end
     #200 Memwrite = 1'b0;
-    #200 begin write_data = 32'hA02023F5;Memwrite = 1'b1; end
+    #200 begin write_data = 32'hA02000F5;Memwrite = 1'b1; address = 32'b1; end
     #200 Memwrite = 1'b0;
-    #200 begin write_data = 32'hA020EEF5;Memwrite = 1'b1; end
+    #200 begin write_data = 32'hA00000F5;Memwrite = 1'b0; address = 32'b1; end
     #200 Memwrite = 1'b0;
     end
     always #50 clock = ~clock; 

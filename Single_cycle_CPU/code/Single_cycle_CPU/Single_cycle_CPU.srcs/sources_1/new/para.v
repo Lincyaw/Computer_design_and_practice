@@ -16,5 +16,59 @@
 
 `define Jr 3'd0
 `define J_Jal 3'd1
-`define Beq_Bne 3'd2
+`define Beq 3'd2
 `define Bgtz 3'd3
+`define Bne 3'd3
+`define Normal 3'd4
+
+`define ins_add 6'b100000
+`define ins_addu 6'b100001
+`define ins_sub 6'b100010
+`define ins_subu 6'b100011
+`define ins_and 6'b100100
+`define ins_or 6'b100101
+`define ins_xor 6'b100110
+`define ins_nor 6'b100111
+`define ins_slt 6'b101010
+`define ins_sltu 6'b101011
+`define ins_sll 6'b000000
+`define ins_srl 6'b000010
+`define ins_sra 6'b000011
+`define ins_sllv 6'b000100
+`define ins_srlv 6'b000110
+`define ins_srav 6'b000111
+`define ins_jr 6'b001000
+`define ins_addi 6'b001000
+`define ins_addiu 6'b001001
+`define ins_andi 6'b001100
+`define ins_ori 6'b001101
+`define ins_xori 6'b001110
+`define ins_sltiu 6'b001011
+`define ins_lui 6'b001111
+`define ins_lw 6'b100011
+`define ins_sw 6'b101011
+`define ins_beq 6'b000100
+`define ins_bne 6'b000101
+`define ins_bgtz 6'b000111
+`define ins_j 6'b000010
+`define ins_jal 6'b000011
+
+
+`define REG_MODE0 3'b00
+`define REG_MODE1 3'b01
+`define REG_MODE2 3'b10
+`define REG_MODE3 3'b11
+`define REG_MODE4 3'b100
+`define REG_MODE5 3'b101
+`define REG_MODE6 3'b110
+
+
+`define EQUAL 2'b00
+`define GREATER 2'b01
+`define SMALLER 2'b10
+
+`define ALU_MODE0 3'b00
+`define ALU_MODE1 3'b01
+`define ALU_MODE2 3'b10
+`define ALU_MODE3 3'b11
+`define ALU_MODE4 3'b100

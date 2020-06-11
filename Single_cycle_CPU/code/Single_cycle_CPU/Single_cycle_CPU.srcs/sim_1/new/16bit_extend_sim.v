@@ -24,18 +24,20 @@ module bit16_extend_sim(
 
     );
         reg [15:0]imm16;
-    wire [31:0]sign_ext;
-    wire [31:0]unsign_ext;
+    reg sign_sel;
+    wire [31:0]ext;
     
-    extend test (
+    extend test(
     imm16,
-    sign_ext,
-    unsign_ext
+    sign_sel,
+    ext
     );
     
     initial begin
-    #100 imm16=16'h8000;
-    #100 imm16=16'h06E0;
+    #100  begin imm16=16'h8000; sign_sel = 1;end
+    #100  begin imm16=16'h8000; sign_sel = 0;end
+     #100 begin imm16=16'h06E0;   sign_sel = 1;end
+    #100 begin imm16=16'h06E0;   sign_sel = 0;end
     
     end
 endmodule

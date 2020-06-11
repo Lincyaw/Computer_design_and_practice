@@ -1,26 +1,31 @@
 `timescale 1ns / 1ps
 `include "para.v"
 module executs32(
-    input [3:0]op,
+    input [3:0]ALUop,
     input [31:0]first,
     input [31:0]second,
     output [31:0]answer,
-    output zero
+    output [1:0]zero
     ); 
 
 reg [31:0]ans;
 assign answer = ans;
-reg zerog;
+reg [1:0]zerog;
 assign zero = zerog;
 always@*
 begin
     if (ans==0) begin
-        zerog = 1;
+        zerog = `EQUAL;
     end
-    else begin
-        zerog = 0;
+    else if(ans>0)
+    begin
+        zerog = `GREATER;
     end
-    case (op)
+    else
+    begin
+        zerog = `SMALLER;
+    end
+    case (ALUop)
         `ADD:
             ans = first+second;
         `SUB:

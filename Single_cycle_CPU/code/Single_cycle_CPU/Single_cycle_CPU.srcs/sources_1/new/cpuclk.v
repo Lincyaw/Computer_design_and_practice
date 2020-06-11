@@ -1,5 +1,5 @@
 `timescale 1ns / 1ps
-module cpuclk(
+module cpuclk0(
     input clk_in1,
     output clk_out1
     );
