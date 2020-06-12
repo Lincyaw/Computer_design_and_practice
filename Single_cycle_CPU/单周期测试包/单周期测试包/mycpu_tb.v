@@ -49,12 +49,11 @@ wire [23:0] led2N4;
 minisys soc_lite (
         .fpga_clk(clk),
         .fpga_rst(rst),
-        //.led2N4(led2N4),
-        //.switch2N4(switch2N4),
-        //.start_pg(0),
-        //.rx(1),
-        //.tx()
-		);
+        .led2N4(led2N4),
+        .switch2N4(switch2N4),
+        .start_pg(0),
+        .rx(1),
+        .tx());
 
 initial 
 begin

@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
 -- Date        : Thu Jun  4 10:20:02 2020
 -- Host        : DESKTOP-KMIMTOV running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Single_cycle_CPU/code/Single_cycle_CPU/Single_cycle_CPU.srcs/sources_1/ip/cpuclk/cpuclk_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top cpuclk -prefix
+--               cpuclk_ cpuclk_sim_netlist.vhdl
 -- Design      : cpuclk
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -19,8 +19,6 @@ entity cpuclk_cpuclk_clk_wiz is
     clk_out1 : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of cpuclk_cpuclk_clk_wiz : entity is "cpuclk_clk_wiz";
 end cpuclk_cpuclk_clk_wiz;
 
 architecture STRUCTURE of cpuclk_cpuclk_clk_wiz is

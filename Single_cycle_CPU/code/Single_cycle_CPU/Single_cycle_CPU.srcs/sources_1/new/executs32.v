@@ -25,6 +25,10 @@ begin
     begin
         zerog = `SMALLER;
     end
+end
+
+always@*
+begin
     case (ALUop)
         `ADD:
             ans = first+second;

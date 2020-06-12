@@ -11,7 +11,8 @@ module NPC(
     );
     reg [31:0] pc_t;
     assign Npc = pc_t;
-    assign PC4 = PC + 4;
+    reg [31:0]pc4temp;
+    assign PC4 = pc4temp;
     wire [31:0] pc_ext;
     
 
@@ -23,6 +24,11 @@ module NPC(
 
 
     always @(posedge clk)
+    begin
+        pc4temp <= PC+4;
+    end
+
+    always @*
     begin
         case (ModeSel)
             `Jr:begin

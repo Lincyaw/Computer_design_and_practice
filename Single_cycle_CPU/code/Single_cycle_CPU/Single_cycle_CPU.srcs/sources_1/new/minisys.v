@@ -5,8 +5,6 @@ module minisys(
     );
     
     wire [31:0]read_data;
-    wire [31:0]address;
-    wire [31:0]write_data; 
     wire Memwrite;
     wire clock;
     wire [2:0]NPCModeSel;
@@ -17,9 +15,6 @@ module minisys(
     wire [31:0]PC4;
     wire [2:0]RegModeSel;
     wire [4:0]WriteAddr;
-    wire [31:0]WD_ALU;
-    wire [31:0]WD_DMRD;
-    wire [31:0]WD_PC4;
     wire [31:0]WD;
     wire WDsel;
     wire [1:0]zero_g;
@@ -32,7 +27,7 @@ module minisys(
     wire [31:0] OP_1;
     wire [31:0] OP_2;
     wire [31:0] EXTEND;
-
+    wire [31:0] reg31;
 
     wire [31:0]debug_wb_pc;
     wire debug_wb_rf_wen;
@@ -64,7 +59,7 @@ module minisys(
     dmemory32 U1(
     read_data,
     answer,
-    Instruction,
+    Regdata2,
     Memwrite,
     clock
     );
@@ -73,7 +68,7 @@ module minisys(
     clock,
     NPCModeSel,
     PC,
-    EXTEND,
+    reg31,
     Instruction,
     zerog,
     Npc,
@@ -96,13 +91,15 @@ module minisys(
 
     regfile U4(
     clock,
-    Instruction[20:16],
+    fpga_rst,
+    Instruction[25:21],
     Regdata1,
-    Instruction[15:11],
+    Instruction[20:16],
     Regdata2,
     WriteAddr,
     WD,
-    WDsel
+    WDsel,
+    reg31
     );
 
 

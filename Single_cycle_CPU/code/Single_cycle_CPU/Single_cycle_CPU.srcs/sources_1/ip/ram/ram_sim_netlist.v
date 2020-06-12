@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Thu Jun  4 18:30:39 2020
+// Date        : Fri Jun 12 23:17:54 2020
 // Host        : DESKTOP-KMIMTOV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
-//               C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Single_cycle_CPU/code/Single_cycle_CPU/Single_cycle_CPU.srcs/sources_1/ip/ram/ram_sim_netlist.v
+//               c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Single_cycle_CPU/code/Single_cycle_CPU/Single_cycle_CPU.srcs/sources_1/ip/ram/ram_sim_netlist.v
 // Design      : ram
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -81,7 +81,7 @@ module ram
   (* C_HAS_ENA = "0" *) 
   (* C_HAS_ENB = "0" *) 
   (* C_HAS_INJECTERR = "0" *) 
-  (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
+  (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
   (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) 
   (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) 
   (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
@@ -580,7 +580,6 @@ module ram_blk_mem_gen_mux
   wire [0:0]\douta[31]_0 ;
   wire [0:0]\douta[31]_1 ;
   wire [1:0]sel_pipe;
-  wire [1:0]sel_pipe_d1;
 
   LUT6 #(
     .INIT(64'hCCFFAAF0CC00AAF0)) 
@@ -588,8 +587,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[12] [5]),
         .I1(\douta[12]_0 [5]),
         .I2(\douta[12]_1 [5]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[12]_2 [5]),
         .O(douta[5]));
   LUT6 #(
@@ -598,8 +597,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[12] [6]),
         .I1(\douta[12]_0 [6]),
         .I2(\douta[12]_1 [6]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[12]_2 [6]),
         .O(douta[6]));
   LUT6 #(
@@ -608,8 +607,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[12] [7]),
         .I1(\douta[12]_0 [7]),
         .I2(\douta[12]_1 [7]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[12]_2 [7]),
         .O(douta[7]));
   LUT6 #(
@@ -618,8 +617,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[13] ),
         .I1(\douta[13]_0 ),
         .I2(\douta[13]_1 ),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[13]_2 ),
         .O(douta[8]));
   LUT6 #(
@@ -628,8 +627,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[21] [0]),
         .I1(\douta[21]_0 [0]),
         .I2(\douta[21]_1 [0]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[21]_2 [0]),
         .O(douta[9]));
   LUT6 #(
@@ -638,8 +637,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[21] [1]),
         .I1(\douta[21]_0 [1]),
         .I2(\douta[21]_1 [1]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[21]_2 [1]),
         .O(douta[10]));
   LUT6 #(
@@ -648,8 +647,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[21] [2]),
         .I1(\douta[21]_0 [2]),
         .I2(\douta[21]_1 [2]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[21]_2 [2]),
         .O(douta[11]));
   LUT6 #(
@@ -658,8 +657,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[21] [3]),
         .I1(\douta[21]_0 [3]),
         .I2(\douta[21]_1 [3]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[21]_2 [3]),
         .O(douta[12]));
   LUT6 #(
@@ -668,8 +667,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[21] [4]),
         .I1(\douta[21]_0 [4]),
         .I2(\douta[21]_1 [4]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[21]_2 [4]),
         .O(douta[13]));
   LUT6 #(
@@ -678,8 +677,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[21] [5]),
         .I1(\douta[21]_0 [5]),
         .I2(\douta[21]_1 [5]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[21]_2 [5]),
         .O(douta[14]));
   LUT6 #(
@@ -688,8 +687,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[21] [6]),
         .I1(\douta[21]_0 [6]),
         .I2(\douta[21]_1 [6]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[21]_2 [6]),
         .O(douta[15]));
   LUT6 #(
@@ -698,8 +697,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[21] [7]),
         .I1(\douta[21]_0 [7]),
         .I2(\douta[21]_1 [7]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[21]_2 [7]),
         .O(douta[16]));
   LUT6 #(
@@ -708,8 +707,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[22] ),
         .I1(\douta[22]_0 ),
         .I2(\douta[22]_1 ),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[22]_2 ),
         .O(douta[17]));
   LUT6 #(
@@ -718,8 +717,8 @@ module ram_blk_mem_gen_mux
        (.I0(DOADO[0]),
         .I1(\douta[30] [0]),
         .I2(\douta[30]_0 [0]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[30]_1 [0]),
         .O(douta[18]));
   LUT6 #(
@@ -728,8 +727,8 @@ module ram_blk_mem_gen_mux
        (.I0(DOADO[1]),
         .I1(\douta[30] [1]),
         .I2(\douta[30]_0 [1]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[30]_1 [1]),
         .O(douta[19]));
   LUT6 #(
@@ -738,8 +737,8 @@ module ram_blk_mem_gen_mux
        (.I0(DOADO[2]),
         .I1(\douta[30] [2]),
         .I2(\douta[30]_0 [2]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[30]_1 [2]),
         .O(douta[20]));
   LUT6 #(
@@ -748,8 +747,8 @@ module ram_blk_mem_gen_mux
        (.I0(DOADO[3]),
         .I1(\douta[30] [3]),
         .I2(\douta[30]_0 [3]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[30]_1 [3]),
         .O(douta[21]));
   LUT6 #(
@@ -758,8 +757,8 @@ module ram_blk_mem_gen_mux
        (.I0(DOADO[4]),
         .I1(\douta[30] [4]),
         .I2(\douta[30]_0 [4]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[30]_1 [4]),
         .O(douta[22]));
   LUT6 #(
@@ -768,8 +767,8 @@ module ram_blk_mem_gen_mux
        (.I0(DOADO[5]),
         .I1(\douta[30] [5]),
         .I2(\douta[30]_0 [5]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[30]_1 [5]),
         .O(douta[23]));
   LUT6 #(
@@ -778,8 +777,8 @@ module ram_blk_mem_gen_mux
        (.I0(DOADO[6]),
         .I1(\douta[30] [6]),
         .I2(\douta[30]_0 [6]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[30]_1 [6]),
         .O(douta[24]));
   LUT6 #(
@@ -788,8 +787,8 @@ module ram_blk_mem_gen_mux
        (.I0(DOADO[7]),
         .I1(\douta[30] [7]),
         .I2(\douta[30]_0 [7]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[30]_1 [7]),
         .O(douta[25]));
   LUT6 #(
@@ -798,8 +797,8 @@ module ram_blk_mem_gen_mux
        (.I0(DOPADOP),
         .I1(\douta[31] ),
         .I2(\douta[31]_0 ),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[31]_1 ),
         .O(douta[26]));
   LUT6 #(
@@ -808,8 +807,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[12] [0]),
         .I1(\douta[12]_0 [0]),
         .I2(\douta[12]_1 [0]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[12]_2 [0]),
         .O(douta[0]));
   LUT6 #(
@@ -818,8 +817,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[12] [1]),
         .I1(\douta[12]_0 [1]),
         .I2(\douta[12]_1 [1]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[12]_2 [1]),
         .O(douta[1]));
   LUT6 #(
@@ -828,8 +827,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[12] [2]),
         .I1(\douta[12]_0 [2]),
         .I2(\douta[12]_1 [2]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[12]_2 [2]),
         .O(douta[2]));
   LUT6 #(
@@ -838,8 +837,8 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[12] [3]),
         .I1(\douta[12]_0 [3]),
         .I2(\douta[12]_1 [3]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[12]_2 [3]),
         .O(douta[3]));
   LUT6 #(
@@ -848,26 +847,10 @@ module ram_blk_mem_gen_mux
        (.I0(\douta[12] [4]),
         .I1(\douta[12]_0 [4]),
         .I2(\douta[12]_1 [4]),
-        .I3(sel_pipe_d1[1]),
-        .I4(sel_pipe_d1[0]),
+        .I3(sel_pipe[1]),
+        .I4(sel_pipe[0]),
         .I5(\douta[12]_2 [4]),
         .O(douta[4]));
-  FDRE #(
-    .INIT(1'b0)) 
-    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0] 
-       (.C(clka),
-        .CE(1'b1),
-        .D(sel_pipe[0]),
-        .Q(sel_pipe_d1[0]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1] 
-       (.C(clka),
-        .CE(1'b1),
-        .D(sel_pipe[1]),
-        .Q(sel_pipe_d1[1]),
-        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \no_softecc_sel_reg.ce_pri.sel_pipe_reg[0] 
@@ -1414,7 +1397,7 @@ module ram_blk_mem_gen_prim_wrapper_init
 
   (* box_type = "PRIMITIVE" *) 
   RAMB18E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -1424,7 +1407,7 @@ module ram_blk_mem_gen_prim_wrapper_init
     .INITP_05(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_06(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_07(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h00000000000000000000000000000000000000000000000000088D2912402711),
+    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -1528,7 +1511,7 @@ module ram_blk_mem_gen_prim_wrapper_init
         .DOPBDOP(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM18.ram_DOPBDOP_UNCONNECTED [1:0]),
         .ENARDEN(1'b1),
         .ENBWREN(1'b0),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -1569,7 +1552,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized0
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -1589,7 +1572,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized0
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0000000000000000000000000000000000000044C0F20810561030000C384113),
+    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -1768,7 +1751,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized0
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -1810,7 +1793,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized1
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -1830,7 +1813,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized1
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h00000000000000000000000000000000000000C8C370005C0300100006340323),
+    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -2009,7 +1992,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized1
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -2057,11 +2040,11 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized10
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h00000000000000000000000000000000000000000000000000C2600000001004),
+    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -2077,8 +2060,8 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized10
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h000000100021606160696100600000620060601F687810292961612A611F6978),
-    .INIT_01(256'h0000000000000010585F606121611F6978585F10696960006000006029211021),
+    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -2256,7 +2239,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized10
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -2304,7 +2287,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized11
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -2503,7 +2486,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized11
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -2551,7 +2534,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized12
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -2750,7 +2733,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized12
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -2798,7 +2781,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized13
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -2997,7 +2980,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized13
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -3045,11 +3028,11 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized2
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h0000000000000000000000000000000000000000000000000009840080000C13),
+    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -3065,8 +3048,8 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized2
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h0282420041000000000000C1004801008100006380FF0100000204FF016380FF),
-    .INIT_01(256'h000000000000000000630000FF016380FF00630000FF00C10048810000000000),
+    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -3244,7 +3227,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized2
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -3293,7 +3276,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized3
   assign addra_12_sp_1 = addra_12_sn_1;
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -3492,7 +3475,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized3
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -3547,7 +3530,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized4
   assign addra_13_sp_1 = addra_13_sn_1;
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -3746,7 +3729,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized4
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -3800,7 +3783,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized5
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -3999,7 +3982,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized5
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -4047,11 +4030,11 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized6
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
-    .INITP_00(256'h000000000000000000000000000000000000000000000000001005BC02084100),
+    .INITP_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -4067,8 +4050,8 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized6
     .INITP_0D(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0E(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INITP_0F(256'h0000000000000000000000000000000000000000000000000000000000000000),
-    .INIT_00(256'h100804408C8014948410108C8C04A12088088404F307400080949883A414F317),
-    .INIT_01(256'h00000000000000400004849C839414F317040440109F84848C04200880004000),
+    .INIT_00(256'h0000000000000000000000000000000000000000000000000000000000000000),
+    .INIT_01(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_02(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_03(256'h0000000000000000000000000000000000000000000000000000000000000000),
     .INIT_04(256'h0000000000000000000000000000000000000000000000000000000000000000),
@@ -4246,7 +4229,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized6
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -4294,7 +4277,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized7
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -4493,7 +4476,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized7
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -4541,7 +4524,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized8
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -4740,7 +4723,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized8
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -4788,7 +4771,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized9
 
   (* box_type = "PRIMITIVE" *) 
   RAMB36E1 #(
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .EN_ECC_READ("FALSE"),
     .EN_ECC_WRITE("FALSE"),
@@ -4987,7 +4970,7 @@ module ram_blk_mem_gen_prim_wrapper_init__parameterized9
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(1'b1),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -5034,7 +5017,7 @@ endmodule
 (* C_EN_RDADDRA_CHG = "0" *) (* C_EN_RDADDRB_CHG = "0" *) (* C_EN_SAFETY_CKT = "0" *) 
 (* C_EN_SHUTDOWN_PIN = "0" *) (* C_EN_SLEEP_PIN = "0" *) (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     13.776802 mW" *) 
 (* C_FAMILY = "artix7" *) (* C_HAS_AXI_ID = "0" *) (* C_HAS_ENA = "0" *) 
-(* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
+(* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
 (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
 (* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "0" *) 
 (* C_HAS_RSTB = "0" *) (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 

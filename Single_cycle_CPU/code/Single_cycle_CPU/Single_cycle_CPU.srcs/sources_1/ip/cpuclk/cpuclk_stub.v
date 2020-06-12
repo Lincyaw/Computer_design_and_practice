@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
 // Date        : Thu Jun  4 10:20:02 2020
 // Host        : DESKTOP-KMIMTOV running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Single_cycle_CPU/code/Single_cycle_CPU/Single_cycle_CPU.srcs/sources_1/ip/cpuclk/cpuclk_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top cpuclk -prefix
+//               cpuclk_ cpuclk_stub.v
 // Design      : cpuclk
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tfgg484-1

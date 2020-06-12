@@ -61,6 +61,7 @@
 `define REG_MODE4 3'b100
 `define REG_MODE5 3'b101
 `define REG_MODE6 3'b110
+`define REG_MODE7 3'b111
 
 
 `define EQUAL 2'b00
