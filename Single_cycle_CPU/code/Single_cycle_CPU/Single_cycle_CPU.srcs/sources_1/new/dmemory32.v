@@ -20,4 +20,4 @@ module dmemory32(read_data,address,write_data,Memwrite,clock);
         .dina(write_data), // input wire [31 : 0] dina
         .douta(read_data) // output wire [31 : 0] douta
     );
-);
+endmodule

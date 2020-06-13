@@ -68,7 +68,7 @@ module minisys(
     clock,
     NPCModeSel,
     PC,
-    reg31,
+    Regdata1,
     Instruction,
     zerog,
     Npc,
