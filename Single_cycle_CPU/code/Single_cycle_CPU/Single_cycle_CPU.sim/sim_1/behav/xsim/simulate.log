@@ -2205,38 +2205,4 @@ Warning : input CLKIN1 period and attribute CLKIN1_PERIOD on PLLE2_ADV instance 
         [ 197668 ns] Test is running, debug_wb_pc = 0x00002118
         [ 197755 ns] Test is running, debug_wb_pc = 0x0000211c
         [ 197842 ns] Test is running, debug_wb_pc = 0x00002120
-        [ 197929 ns] Test is running, debug_wb_pc = 0x00002124
-        [ 198016 ns] Test is running, debug_wb_pc = 0x00002128
-        [ 198103 ns] Test is running, debug_wb_pc = 0x0000212c
-        [ 198190 ns] Test is running, debug_wb_pc = 0x00002130
-        [ 198277 ns] Test is running, debug_wb_pc = 0x00002134
-        [ 198364 ns] Test is running, debug_wb_pc = 0x00002138
-        [ 198451 ns] Test is running, debug_wb_pc = 0x0000213c
-        [ 198538 ns] Test is running, debug_wb_pc = 0x00002140
-        [ 198625 ns] Test is running, debug_wb_pc = 0x00002144
-        [ 198712 ns] Test is running, debug_wb_pc = 0x00002148
-        [ 198799 ns] Test is running, debug_wb_pc = 0x0000214c
-        [ 198886 ns] Test is running, debug_wb_pc = 0x00000520
-        [ 198973 ns] Test is running, debug_wb_pc = 0x00000524
-        [ 199060 ns] Test is running, debug_wb_pc = 0x00000588
-        [ 199147 ns] Test is running, debug_wb_pc = 0x0000058c
-        [ 199233 ns] Test is running, debug_wb_pc = 0x00000590
-        [ 199320 ns] Test is running, debug_wb_pc = 0x00000594
-        [ 199407 ns] Test is running, debug_wb_pc = 0x00000598
-        [ 199494 ns] Test is running, debug_wb_pc = 0x0000059c
-        [ 199581 ns] Test is running, debug_wb_pc = 0x000005a0
-        [ 199668 ns] Test is running, debug_wb_pc = 0x00000528
-        [ 199755 ns] Test is running, debug_wb_pc = 0x0000052c
-        [ 199842 ns] Test is running, debug_wb_pc = 0x0000053c
-        [ 199929 ns] Test is running, debug_wb_pc = 0x00000540
-        [ 200016 ns] Test is running, debug_wb_pc = 0x0000056c
-        [ 200103 ns] Test is running, debug_wb_pc = 0x00000570
-        [ 200190 ns] Test is running, debug_wb_pc = 0x00000574
-        [ 200277 ns] Test is running, debug_wb_pc = 0x00000578
-        [ 200364 ns] Test is running, debug_wb_pc = 0x0000057c
-        [ 200451 ns] Test is running, debug_wb_pc = 0x00000580
-        [ 200538 ns] Test is running, debug_wb_pc = 0x00000100
-==============================================================
-Test end!
-----PASS!!!
-$finish called at time : 200664798 ps : File "C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Single_cycle_CPU/code/Single_cycle_CPU/Single_cycle_CPU.srcs/sim_1/new/mycpu_tb.v" Line 163
+        [ 197929 ns] Test
