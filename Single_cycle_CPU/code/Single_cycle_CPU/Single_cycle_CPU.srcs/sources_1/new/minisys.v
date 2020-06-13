@@ -98,8 +98,7 @@ module minisys(
     Regdata2,
     WriteAddr,
     WD,
-    WDsel,
-    reg31
+    WDsel
     );
 
 

@@ -77,7 +77,7 @@ module control32(
         `ins_xori:  begin ALU = `XOR;  reg_mux_temp = `REG_MODE3; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
         `ins_sltiu: begin ALU = `SUB;  reg_mux_temp = zero_g==`SMALLER?`REG_MODE1:`REG_MODE2; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
         `ins_lui:   begin ALU = `SLL;  reg_mux_temp = `REG_MODE3; ALU_MODE = `ALU_MODE3; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end //将立即数左移16位
-        `ins_lw:    begin ALU = `ADD;  reg_mux_temp = `REG_MODE7; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 1; end   
+        `ins_lw:    begin ALU = `ADD;  reg_mux_temp = `REG_MODE4; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 1; end   
         `ins_sw:    begin ALU = `ADD;  reg_mux_temp = `REG_MODE6; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 1; Sel_Sign = 1; end
         `ins_beq:   begin ALU = `SUB;  reg_mux_temp = `REG_MODE6; ALU_MODE = `ALU_MODE0; NPC_MODE = `Beq;    WriteMemory = 0; Sel_Sign = 1; end
         `ins_bne:   begin ALU = `SUB;  reg_mux_temp = `REG_MODE6; ALU_MODE = `ALU_MODE0; NPC_MODE = `Bne;    WriteMemory = 0; Sel_Sign = 1; end

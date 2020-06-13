@@ -28,12 +28,6 @@ module reg_mux(
         `REG_MODE4: begin Write = IMD20_16; WD_out = WD_DMRD; WD_sel = 1; end 
         `REG_MODE5: begin Write = 5'b11111; WD_out = WD_PC4; WD_sel = 1; end  //$31
         `REG_MODE6: begin WD_sel = 0; end
-        `REG_MODE7: 
-        begin 
-            Write = IMD20_16; 
-            WD_out = WD_DMRD; 
-            WD_sel = 1;
-        end  //单独处理lw指令
         endcase
     end
 

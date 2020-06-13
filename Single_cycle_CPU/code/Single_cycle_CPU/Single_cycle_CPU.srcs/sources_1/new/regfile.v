@@ -10,18 +10,11 @@ module regfile(
 
     input [4:0]WriteAddr,
     input [31:0]WD,
-    input WDsel,
-    output [31:0]reg31
+    input WDsel
     );
     reg [31:0] imem[31:0]; //32
 
-// initial begin
-// $readmemh("memory.list", imem);
-// end
-
-
 integer i=0; //be careful, i should be integer!
-assign reg31 = imem[31];
 assign Regdata1 = imem[rd1];
 assign Regdata2 = imem[rd2];
 
