@@ -73,3 +73,12 @@
 `define ALU_MODE2 3'b10
 `define ALU_MODE3 3'b11
 `define ALU_MODE4 3'b100
+
+
+`define sinit 3'b000
+`define sifetch 3'b001
+`define sidecode 3'b010
+`define sexecute 3'b011
+`define smem 3'b100
+`define swb 3'b101
+`define swait 3'b110

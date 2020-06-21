@@ -2387,3 +2387,20 @@ Warning : input CLKIN1 period and attribute CLKIN1_PERIOD on PLLE2_ADV instance 
 Test end!
 ----PASS!!!
 $finish called at time : 200664798 ps : File "C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sim_1/new/mycpu_tb.v" Line 163
+update_compile_order -fileset sources_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+close_sim: Time (s): cpu = 00:00:03 ; elapsed = 00:00:15 . Memory (MB): peak = 830.879 ; gain = 0.000
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Jun 17 23:12:35 2020...

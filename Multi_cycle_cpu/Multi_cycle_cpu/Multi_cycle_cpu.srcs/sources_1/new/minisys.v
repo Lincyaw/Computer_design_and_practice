@@ -8,7 +8,7 @@ module minisys(
     wire Memwrite;
     wire clock;
     wire [2:0]NPCModeSel;
-    reg [31:0]PC;
+    wire [31:0]PC;
     wire [31:0]Instruction;
     wire [1:0]zerog;
     wire [31:0]Npc;
@@ -28,24 +28,22 @@ module minisys(
     wire [31:0] OP_2;
     wire [31:0] EXTEND;
     wire [31:0] reg31;
-
+    wire IRWr;
     wire [31:0]debug_wb_pc;
     wire debug_wb_rf_wen;
     wire [4:0] debug_wb_rf_wnum;
     wire[31:0] debug_wb_rf_wdata;
 
-    assign debug_wb_pc = PC;
+    //assign debug_wb_pc = PC;
     assign debug_wb_rf_wen = WDsel;
     assign debug_wb_rf_wnum = WriteAddr;
     assign debug_wb_rf_wdata = WD;
 
-    always@(negedge clock)
-    begin
-        PC = fpga_rst ? 0 : Npc;
-    end
+
 
     ifetc32 U9(
     clock,
+    IRWr,
     PC,
     Instruction
     );
@@ -66,6 +64,7 @@ module minisys(
     
     NPC U2(
     clock,
+    fpga_rst,
     NPCModeSel,
     PC,
     Regdata1,
@@ -114,6 +113,7 @@ module minisys(
     );
 
     executs32 U6(
+        clock,
     ALUop,
     OP_1,
     OP_2,
@@ -130,14 +130,19 @@ module minisys(
 
     control32 U8(
     clock,
+    fpga_rst,
     Instruction,
+    Npc,
     zero_g,
+    PC,
     ALUop,
     ALU_MODESEL,
     RegModeSel,
     NPCModeSel,
     Memwrite,
-    Sign_Sel
+    Sign_Sel,
+    IRWr,
+    debug_wb_pc
     );
 
 endmodule

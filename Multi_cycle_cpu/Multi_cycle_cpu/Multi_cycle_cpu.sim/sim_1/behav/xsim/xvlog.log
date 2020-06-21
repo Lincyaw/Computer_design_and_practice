@@ -30,5 +30,3 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/fay/Documents/GitHub/Compu
 INFO: [VRFC 10-311] analyzing module regfile
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sim_1/new/mycpu_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mycpu_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl

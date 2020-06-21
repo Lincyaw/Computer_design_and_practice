@@ -28,7 +28,7 @@ minisys soc_lite(
 initial 
 begin
     resetn = 1'b0;
-    #7000 rst = 0;
+    #7017 rst = 0;
 
     resetn = 1'b1;
 end

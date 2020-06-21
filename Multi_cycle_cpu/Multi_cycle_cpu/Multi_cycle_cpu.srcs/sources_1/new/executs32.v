@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 `include "para.v"
 module executs32(
+    input clk,
     input [3:0]ALUop,
     input [31:0]first,
     input [31:0]second,
@@ -9,7 +10,16 @@ module executs32(
     ); 
 
 reg [31:0]ans;
+reg [31:0]anst;
 assign answer = ans;
+
+always@(posedge clk)
+begin
+    anst <= ans;
+end
+
+
+
 reg [1:0]zerog;
 assign zero = zerog;
 always@*

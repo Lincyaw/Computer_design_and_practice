@@ -1,6 +1,7 @@
 `timescale 1ns / 1ps
 module NPC(
     input clk,
+    input rst,
     input [2:0]ModeSel,
     input [31:0]PC,
     input [31:0]Offset,
@@ -11,6 +12,11 @@ module NPC(
     );
     reg [31:0] pc_t;
     assign Npc = pc_t;
+
+
+
+
+
     reg [31:0]pc4temp;
     assign PC4 = pc4temp;
     wire [31:0] pc_ext;
@@ -30,7 +36,13 @@ module NPC(
 
     always @*
     begin
-        case (ModeSel)
+        if(rst)
+        begin
+            pc_t <= 0;
+        end
+        else
+        begin
+            case (ModeSel)
             `Jr:begin
                 pc_t <= Offset;
             end
@@ -48,5 +60,7 @@ module NPC(
             end
             `Normal: pc_t <= PC+4;
         endcase
+        end
+        
     end
 endmodule
