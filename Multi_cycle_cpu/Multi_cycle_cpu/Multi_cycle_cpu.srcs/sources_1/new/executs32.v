@@ -11,7 +11,7 @@ module executs32(
 
 reg [31:0]ans;
 reg [31:0]anst;
-assign answer = ans;
+assign answer = anst;
 
 always@(posedge clk)
 begin

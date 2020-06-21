@@ -17,13 +17,13 @@ module regfile(
 integer i=0; //be careful, i should be integer!
 reg [31:0]Red1;
 reg [31:0]Red2;
-assign Regdata1 = imem[rd1];
-assign Regdata2 = imem[rd2];
+assign Regdata1 = Red1;
+assign Regdata2 = Red2;
 
-always @(posedge clk)  
+always @(negedge clk)  
 begin
     Red1 <= imem[rd1];
-    Red1 <= imem[rd2];
+    Red2 <= imem[rd2];
 end
 
 always @(posedge clk)   

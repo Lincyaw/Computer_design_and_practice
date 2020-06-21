@@ -44,7 +44,7 @@ module control32(
     reg IRWr;
     assign IRWrsel = IRWr;
     reg [31:0]PC_previous=0;
-    assign PC_pre = PC_previous;
+    assign PC_pre = op==`ins_jal?NPC:PC_previous;
 
 
 
@@ -176,7 +176,7 @@ begin
             select_npc=0;
             reg_mux_temp = `REG_MODE6; //不写寄存器
             WriteMemory = 0;
-            
+            //NPC_MODE = `Normal;
             case(op)
             6'b000000:
                 begin
@@ -212,6 +212,7 @@ begin
             `ins_beq:   begin ALU = `SUB; ALU_MODE = `ALU_MODE0; NPC_MODE = `Beq; Sel_Sign = 1; select_npc=0;end
             `ins_bne:   begin ALU = `SUB; ALU_MODE = `ALU_MODE0; NPC_MODE = `Bne; Sel_Sign = 1; select_npc=0;end
             `ins_bgtz:  begin ALU = `SUB; ALU_MODE = `ALU_MODE0; NPC_MODE = `Bgtz;Sel_Sign = 1; select_npc=0;end
+            //`ins_jal:   begin  NPC_MODE = `J_Jal; end//regmode5是把{PC+4}写到$31里
             default:    begin select_npc=0; end
             endcase
         end
@@ -261,7 +262,7 @@ begin
                     default:    begin  reg_mux_temp = `REG_MODE3; end
                     endcase
         end
-        default: begin select_npc=0; end
+        default: begin select_npc=0;  end
     endcase
 end
 

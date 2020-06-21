@@ -14,7 +14,7 @@ module ifetc32(
     );
 
     reg [31:0]ins;
-    assign IR = Instruction;
+    assign IR = ins;
     always@(posedge clock)
     begin
         if(IRWr)

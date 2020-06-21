@@ -18,7 +18,7 @@ module NPC(
 
 
     reg [31:0]pc4temp;
-    assign PC4 = pc4temp;
+    assign PC4 = PC;
     wire [31:0] pc_ext;
     
 

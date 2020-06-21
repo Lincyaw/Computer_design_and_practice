@@ -20,7 +20,7 @@ vlog -work blk_mem_gen_v8_4_2  -v2k5 \
 "../../../ipstatic/simulation/blk_mem_gen_v8_4.v" \
 
 vlog -work xil_defaultlib  -v2k5 \
-"../../../../Single_cycle_CPU.srcs/sources_1/ip/prgrom/sim/prgrom.v" \
+"../../../../Multi_cycle_cpu.srcs/sources_1/ip/prgrom/sim/prgrom.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

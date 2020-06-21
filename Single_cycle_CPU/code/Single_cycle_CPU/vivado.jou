@@ -15,3 +15,4 @@ update_compile_order -fileset sources_1
 launch_simulation
 source mycpu_tb.tcl
 run all
+close_sim

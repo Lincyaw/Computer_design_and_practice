@@ -9,7 +9,7 @@
   "../../../ipstatic/simulation/blk_mem_gen_v8_4.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
-  "../../../../Single_cycle_CPU.srcs/sources_1/ip/prgrom/sim/prgrom.v" \
+  "../../../../Multi_cycle_cpu.srcs/sources_1/ip/prgrom/sim/prgrom.v" \
 -endlib
 -makelib xcelium_lib/xil_defaultlib \
   glbl.v
