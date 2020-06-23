@@ -6,7 +6,6 @@ module control32(
     input rst,
     input [31:0]instruction,
     input [31:0]NPC,
-    input [1:0]zero_g,
     output [31:0]PC_curr,
     output [3:0]ALUop,
     output [2:0]ALU_MODESEL,
@@ -43,8 +42,7 @@ module control32(
     assign Sign_Sel = Sel_Sign;
     reg IRWr;
     assign IRWrsel = IRWr;
-    reg [31:0]PC_previous=0;
-    assign PC_pre = op==`ins_jal?NPC:PC_previous;
+    assign PC_pre = op==`ins_jal?NPC:PC;
 
 
 
@@ -66,7 +64,6 @@ begin
     else if(select_npc)
     begin
         PC <= NPC;
-        PC_previous <= NPC;
     end
 end
 
@@ -81,10 +78,13 @@ begin
         `sidecode:
         begin 
             case(op)
-            6'b000000: begin if(funct==`ins_jr) begin next_state = `sifetch; end end//jr不需要考虑ALU的运算情况, 因为用不到
+            6'b000000: begin 
+                if(funct==`ins_jr) begin next_state = `sifetch; end 
+                else begin next_state = `sexecute; end
+                end//jr不需要考虑ALU的运算情况, 因为用不到
             `ins_j: begin next_state = `sifetch;end
-            `ins_jal:next_state = `swb;
-            default:    next_state = `sexecute;
+            `ins_jal: begin next_state = `swb; end
+            default: begin next_state = `sexecute; end
             endcase
         end
         `sexecute: 
@@ -132,8 +132,7 @@ begin
     case (curr_state)
         `sifetch:  
         begin 
-            IRWr=1; 
-            
+             IRWr=1;
             if(!flag)
             begin
                 select_npc=0;
@@ -146,7 +145,7 @@ begin
             reg_mux_temp = `REG_MODE6; //不写寄存器
             WriteMemory = 0;
         end
-        `swait:  
+        `swait: 
         begin 
             IRWr=0; 
             select_npc=0;
@@ -162,7 +161,7 @@ begin
             case(op)
             6'b000000:
                 begin
-                    if(funct==`ins_jr) begin NPC_MODE = `Jr; end //jr不需要考虑ALU的运算情况, 因为用不到
+                    if(funct==`ins_jr) begin NPC_MODE = `Jr; end
                     else begin NPC_MODE = `Normal;select_npc=0;end
                 end
             `ins_j:     begin  NPC_MODE = `J_Jal; select_npc=0; end 
@@ -235,8 +234,8 @@ begin
                     6'b000000:
                         begin
                             case (funct)
-                                `ins_slt:  begin reg_mux_temp = zero_g==`SMALLER?`REG_MODE1:`REG_MODE2; end
-                                `ins_sltu: begin reg_mux_temp = zero_g==`SMALLER?`REG_MODE1:`REG_MODE2; end
+                                `ins_slt:  begin reg_mux_temp = `REG_MODE2; end
+                                `ins_sltu: begin reg_mux_temp = `REG_MODE2; end
                                 `ins_sll:  begin 
                                     if(instruction[31:0]==0)
                                     begin
@@ -251,7 +250,7 @@ begin
                                 default:    begin  reg_mux_temp = `REG_MODE0;end
                             endcase
                         end
-                    `ins_sltiu: begin   reg_mux_temp = zero_g==`SMALLER?`REG_MODE1:`REG_MODE2;  end
+                    `ins_sltiu: begin  reg_mux_temp = `REG_MODE1;  end
                     `ins_lw:    begin  reg_mux_temp = `REG_MODE4;  end   
                     `ins_sw:    begin  reg_mux_temp = `REG_MODE6;  end
                     `ins_beq:   begin  reg_mux_temp = `REG_MODE6;  end

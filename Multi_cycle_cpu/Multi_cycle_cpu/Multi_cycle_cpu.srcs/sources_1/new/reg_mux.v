@@ -2,6 +2,7 @@
 `include "para.v"
 module reg_mux(
     input [2:0]mode,
+    input [1:0]zero_g,
     input [4:0]IMD20_16,
     input [4:0]IMD15_11,
     output [4:0]WriteAddr,
@@ -22,8 +23,25 @@ module reg_mux(
     begin
         case(mode)
         `REG_MODE0: begin Write = IMD15_11; WD_out = WD_ALU; WD_sel = 1; end
-        `REG_MODE1: begin Write = IMD15_11; WD_out = 32'b1; WD_sel = 1; end
-        `REG_MODE2: begin Write = IMD15_11; WD_out = 32'b0; WD_sel = 1; end
+        `REG_MODE1: 
+        begin 
+            Write = IMD20_16; 
+            WD_sel = 1; 
+            //WD_out = (zero_g==`SMALLER) ? 32'b1:32'b0;
+             if(zero_g==`SMALLER) 
+             begin WD_out =32'b1; end 
+             else 
+             begin WD_out =32'b0;end  
+            
+            end
+        `REG_MODE2: 
+            begin 
+            Write = IMD15_11; 
+             if(zero_g==`SMALLER) 
+             begin WD_out =32'b1; end 
+             else begin WD_out =32'b0;end  
+            WD_sel = 1; 
+            end
         `REG_MODE3: begin Write = IMD20_16; WD_out = WD_ALU; WD_sel = 1; end
         `REG_MODE4: begin Write = IMD20_16; WD_out = WD_DMRD; WD_sel = 1; end 
         `REG_MODE5: begin Write = 5'b11111; WD_out = WD_PC4; WD_sel = 1; end  //$31

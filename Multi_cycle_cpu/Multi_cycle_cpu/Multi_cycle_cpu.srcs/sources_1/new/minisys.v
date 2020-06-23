@@ -17,7 +17,6 @@ module minisys(
     wire [4:0]WriteAddr;
     wire [31:0]WD;
     wire WDsel;
-    wire [1:0]zero_g;
     wire [3:0]ALUop;
     wire [2:0]ALU_MODESEL;
     wire Sign_Sel;
@@ -77,6 +76,7 @@ module minisys(
 
     reg_mux U3(
     RegModeSel,
+    zerog,
     Instruction[20:16],
     Instruction[15:11],
     WriteAddr,
@@ -113,7 +113,7 @@ module minisys(
     );
 
     executs32 U6(
-        clock,
+    clock,
     ALUop,
     OP_1,
     OP_2,
@@ -133,7 +133,6 @@ module minisys(
     fpga_rst,
     Instruction,
     Npc,
-    zero_g,
     PC,
     ALUop,
     ALU_MODESEL,

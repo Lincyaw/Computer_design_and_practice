@@ -12,22 +12,26 @@ module executs32(
 reg [31:0]ans;
 reg [31:0]anst;
 assign answer = anst;
+reg[1:0] zer;
+reg [1:0]zerog;
+assign zero = zerog;
+
 
 always@(posedge clk)
 begin
     anst <= ans;
+    zer <= zerog;
 end
 
 
 
-reg [1:0]zerog;
-assign zero = zerog;
+
 always@*
 begin
     if (ans==0) begin
         zerog = `EQUAL;
     end
-    else if(ans>0)
+    else if(ans[31]==0)
     begin
         zerog = `GREATER;
     end

@@ -15,9 +15,6 @@ module NPC(
 
 
 
-
-
-    reg [31:0]pc4temp;
     assign PC4 = PC;
     wire [31:0] pc_ext;
     
@@ -28,11 +25,6 @@ module NPC(
     pc_ext
     );
 
-
-    always @(posedge clk)
-    begin
-        pc4temp <= PC+4;
-    end
 
     always @*
     begin
@@ -50,13 +42,13 @@ module NPC(
                 pc_t <= {4'b0,Instruction[25:0],2'b0};
             end
             `Beq:begin
-                pc_t <= zerog == `EQUAL? PC+(pc_ext<<2)+4 : PC+4;
+                pc_t <= zerog == `EQUAL? PC+(pc_ext<<2) : PC+4;
             end
             `Bne:begin
-                pc_t <= zerog == `EQUAL? PC+4 : PC+(pc_ext<<2)+4;
+                pc_t <= zerog == `EQUAL? PC+4 : PC+(pc_ext<<2);
             end
             `Bgtz:begin
-                pc_t <= zerog == `GREATER? (pc_ext<<2)+4:PC+4;
+                pc_t <= zerog == `GREATER? (pc_ext<<2):PC+4;
             end
             `Normal: pc_t <= PC+4;
         endcase

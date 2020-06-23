@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="6766996000fs"></ZoomStartTime>
-      <ZoomEndTime time="8704996001fs"></ZoomEndTime>
-      <Cursor1Time time="8381996000fs"></Cursor1Time>
+      <ZoomStartTime time="232155000000fs"></ZoomStartTime>
+      <ZoomEndTime time="234723000001fs"></ZoomEndTime>
+      <Cursor1Time time="234295000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="237"></NameColumnWidth>
-      <ValueColumnWidth column_width="81"></ValueColumnWidth>
+      <ValueColumnWidth column_width="69"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="38" />
+   <WVObjectSize size="42" />
    <wvobject fp_name="/mycpu_tb/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
@@ -52,9 +52,17 @@
       <obj_property name="ElementShortName">PC[31:0]</obj_property>
       <obj_property name="ObjectShortName">PC[31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/mycpu_tb/soc_lite/Instruction" type="array">
+      <obj_property name="ElementShortName">Instruction[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instruction[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/mycpu_tb/soc_lite/U8/curr_state" type="array">
       <obj_property name="ElementShortName">curr_state[2:0]</obj_property>
       <obj_property name="ObjectShortName">curr_state[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mycpu_tb/soc_lite/U8/next_state" type="array">
+      <obj_property name="ElementShortName">next_state[2:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[2:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/mycpu_tb/debug_wb_rf_wnum" type="array">
       <obj_property name="ElementShortName">debug_wb_rf_wnum[4:0]</obj_property>
@@ -120,10 +128,6 @@
       <obj_property name="ElementShortName">anst[31:0]</obj_property>
       <obj_property name="ObjectShortName">anst[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mycpu_tb/soc_lite/Instruction" type="array">
-      <obj_property name="ElementShortName">Instruction[31:0]</obj_property>
-      <obj_property name="ObjectShortName">Instruction[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/mycpu_tb/soc_lite/IRWr" type="logic">
       <obj_property name="ElementShortName">IRWr</obj_property>
       <obj_property name="ObjectShortName">IRWr</obj_property>
@@ -155,6 +159,18 @@
    <wvobject fp_name="/mycpu_tb/soc_lite/U4/WDsel" type="logic">
       <obj_property name="ElementShortName">WDsel</obj_property>
       <obj_property name="ObjectShortName">WDsel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mycpu_tb/soc_lite/U8/reg_mux_mode" type="array">
+      <obj_property name="ElementShortName">reg_mux_mode[2:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_mux_mode[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mycpu_tb/soc_lite/U6/zer" type="array">
+      <obj_property name="ElementShortName">zer[1:0]</obj_property>
+      <obj_property name="ObjectShortName">zer[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mycpu_tb/soc_lite/U6/zerog" type="array">
+      <obj_property name="ElementShortName">zerog[1:0]</obj_property>
+      <obj_property name="ObjectShortName">zerog[1:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/mycpu_tb/soc_lite/U4/imem" type="array">
       <obj_property name="ElementShortName">imem[31:0][31:0]</obj_property>
