@@ -2,16 +2,18 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Mon Jun 22 16:22:54 2020
-# Process ID: 20008
+# Start of session at: Wed Jun 24 08:27:34 2020
+# Process ID: 1596
 # Current directory: C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Single_cycle_CPU/code/Single_cycle_CPU
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16160 C:\Users\fay\Documents\GitHub\Computer_design_and_practice\Single_cycle_CPU\code\Single_cycle_CPU\Single_cycle_CPU.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4004 C:\Users\fay\Documents\GitHub\Computer_design_and_practice\Single_cycle_CPU\code\Single_cycle_CPU\Single_cycle_CPU.xpr
 # Log file: C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Single_cycle_CPU/code/Single_cycle_CPU/vivado.log
 # Journal file: C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Single_cycle_CPU/code/Single_cycle_CPU\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Single_cycle_CPU/code/Single_cycle_CPU/Single_cycle_CPU.xpr
 update_compile_order -fileset sources_1
-launch_simulation
-source mycpu_tb.tcl
-run all
+reset_project
+launch_runs ram_synth_1 -jobs 6
+wait_on_run ram_synth_1
+launch_runs prgrom_synth_1 -jobs 6
+wait_on_run prgrom_synth_1

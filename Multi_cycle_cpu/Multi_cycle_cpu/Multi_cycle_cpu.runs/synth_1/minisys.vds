@@ -1,0 +1,654 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Jun 24 20:23:35 2020
+# Process ID: 3744
+# Current directory: C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.runs/synth_1
+# Command line: vivado.exe -log minisys.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source minisys.tcl
+# Log file: C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.runs/synth_1/minisys.vds
+# Journal file: C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source minisys.tcl -notrace
+Command: synth_design -top minisys -part xc7a100tfgg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4988 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 397.074 ; gain = 104.117
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'minisys' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/minisys.v:2]
+INFO: [Synth 8-6157] synthesizing module 'ifetc32' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/ifetc32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'prgrom' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.runs/synth_1/.Xil/Vivado-3744-DESKTOP-KMIMTOV/realtime/prgrom_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'prgrom' (1#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.runs/synth_1/.Xil/Vivado-3744-DESKTOP-KMIMTOV/realtime/prgrom_stub.v:6]
+WARNING: [Synth 8-350] instance 'instmem' of module 'prgrom' requires 5 connections, but only 3 given [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/ifetc32.v:10]
+INFO: [Synth 8-6155] done synthesizing module 'ifetc32' (2#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/ifetc32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'cpuclk0' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/cpuclk.v:2]
+INFO: [Synth 8-6157] synthesizing module 'cpuclk' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.runs/synth_1/.Xil/Vivado-3744-DESKTOP-KMIMTOV/realtime/cpuclk_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cpuclk' (3#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.runs/synth_1/.Xil/Vivado-3744-DESKTOP-KMIMTOV/realtime/cpuclk_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cpuclk0' (4#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/cpuclk.v:2]
+INFO: [Synth 8-6157] synthesizing module 'dmemory32' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/dmemory32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'ram' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.runs/synth_1/.Xil/Vivado-3744-DESKTOP-KMIMTOV/realtime/ram_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ram' (5#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.runs/synth_1/.Xil/Vivado-3744-DESKTOP-KMIMTOV/realtime/ram_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'dmemory32' (6#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/dmemory32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'NPC' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/idecode32.v:2]
+INFO: [Synth 8-6157] synthesizing module 'extend' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/extend.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'extend' (7#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/extend.v:2]
+WARNING: [Synth 8-151] case item 3'b011 is unreachable [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/idecode32.v:37]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/idecode32.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'NPC' (8#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/idecode32.v:2]
+INFO: [Synth 8-6157] synthesizing module 'reg_mux' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/reg_mux.v:3]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/reg_mux.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'reg_mux' (9#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/reg_mux.v:3]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/regfile.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (10#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/regfile.v:2]
+INFO: [Synth 8-6157] synthesizing module 'ALU_mux' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/ALU_mux.v:3]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/ALU_mux.v:18]
+INFO: [Synth 8-6155] done synthesizing module 'ALU_mux' (11#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/ALU_mux.v:3]
+INFO: [Synth 8-6157] synthesizing module 'executs32' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/executs32.v:3]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/executs32.v:46]
+WARNING: [Synth 8-6014] Unused sequential element zer_reg was removed.  [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/executs32.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'executs32' (12#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/executs32.v:3]
+INFO: [Synth 8-6157] synthesizing module 'control32' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'control32' (13#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'minisys' (14#1) [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/minisys.v:2]
+WARNING: [Synth 8-3331] design NPC has unconnected port clk
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[31]
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[30]
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[29]
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[28]
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[27]
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[26]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[31]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[30]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[29]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[28]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[27]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[26]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[25]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[24]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[23]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[22]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[21]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[20]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[19]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[18]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[17]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[16]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[1]
+WARNING: [Synth 8-3331] design dmemory32 has unconnected port address[0]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[31]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[30]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[29]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[28]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[27]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[26]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[25]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[24]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[23]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[22]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[21]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[20]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[19]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[18]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[17]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[16]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[1]
+WARNING: [Synth 8-3331] design ifetc32 has unconnected port PC[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 452.844 ; gain = 159.887
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 452.844 ; gain = 159.887
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 452.844 ; gain = 159.887
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tfgg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/ip/ram/ram/ram_in_context.xdc] for cell 'U1/ram'
+Finished Parsing XDC File [c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/ip/ram/ram/ram_in_context.xdc] for cell 'U1/ram'
+Parsing XDC File [c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/ip/prgrom/prgrom/prgrom_in_context.xdc] for cell 'U9/instmem'
+Finished Parsing XDC File [c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/ip/prgrom/prgrom/prgrom_in_context.xdc] for cell 'U9/instmem'
+Parsing XDC File [c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/ip/cpuclk/cpuclk/cpuclk_in_context.xdc] for cell 'U0/UCLK'
+Finished Parsing XDC File [c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/ip/cpuclk/cpuclk/cpuclk_in_context.xdc] for cell 'U0/UCLK'
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 807.586 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 807.746 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 807.746 ; gain = 0.160
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'U1/ram' at clock pin 'clka' is different from the actual clock period '6.667', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'U9/instmem' at clock pin 'clka' is different from the actual clock period '6.667', this can lead to different synthesis results.
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 809.242 ; gain = 516.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tfgg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 809.242 ; gain = 516.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for fpga_clk. (constraint file  c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/ip/cpuclk/cpuclk/cpuclk_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for fpga_clk. (constraint file  c:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/ip/cpuclk/cpuclk/cpuclk_in_context.xdc, line 4).
+Applied set_property DONT_TOUCH = true for U1/ram. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U9/instmem. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for U0/UCLK. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 809.242 ; gain = 516.285
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "WD_out0" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "imem_reg[31]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[30]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "imem_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/executs32.v:46]
+INFO: [Synth 8-5545] ROM "zerog" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-802] inferred FSM for state register 'curr_state_reg' in module 'control32'
+INFO: [Synth 8-5546] ROM "select_npc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "reg_mux_temp" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "WriteMemory" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "NPC_MODE" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "NPC_MODE" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ALU" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sel_Sign" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "IRWr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "WriteMemory" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "next_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "next_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "next_state" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-327] inferring latch for variable 'pc_t_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/idecode32.v:14]
+WARNING: [Synth 8-327] inferring latch for variable 'Write_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/reg_mux.v:16]
+WARNING: [Synth 8-327] inferring latch for variable 'WD_out_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/reg_mux.v:18]
+WARNING: [Synth 8-327] inferring latch for variable 'WD_sel_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/reg_mux.v:21]
+WARNING: [Synth 8-327] inferring latch for variable 'OP1_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/ALU_mux.v:14]
+WARNING: [Synth 8-327] inferring latch for variable 'OP2_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/ALU_mux.v:15]
+WARNING: [Synth 8-327] inferring latch for variable 'ans_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/executs32.v:48]
+WARNING: [Synth 8-327] inferring latch for variable 'select_npc_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:139]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE4 |                              000 |                              000
+*
+                 iSTATE2 |                              001 |                              001
+                  iSTATE |                              010 |                              010
+                 iSTATE0 |                              011 |                              011
+                 iSTATE1 |                              100 |                              100
+                 iSTATE3 |                              101 |                              101
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'curr_state_reg' using encoding 'sequential' in module 'control32'
+WARNING: [Synth 8-327] inferring latch for variable 'ALU_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:32]
+WARNING: [Synth 8-327] inferring latch for variable 'ALU_MODE_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:36]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_mux_temp_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:34]
+WARNING: [Synth 8-327] inferring latch for variable 'NPC_MODE_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:38]
+WARNING: [Synth 8-327] inferring latch for variable 'WriteMemory_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:40]
+WARNING: [Synth 8-327] inferring latch for variable 'Sel_Sign_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:42]
+WARNING: [Synth 8-327] inferring latch for variable 'IRWr_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:44]
+WARNING: [Synth 8-327] inferring latch for variable 'flag_reg' [C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/new/control32.v:137]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 809.242 ; gain = 516.285
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 37    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 7     
+	   6 Input     32 Bit        Muxes := 2     
+	  10 Input     32 Bit        Muxes := 1     
+	   8 Input      5 Bit        Muxes := 1     
+	  17 Input      4 Bit        Muxes := 1     
+	  14 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	   5 Input      3 Bit        Muxes := 3     
+	  10 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 2     
+	   6 Input      3 Bit        Muxes := 3     
+	   3 Input      3 Bit        Muxes := 1     
+	  17 Input      3 Bit        Muxes := 1     
+	  14 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 12    
+	   8 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 36    
+	  10 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+	  14 Input      1 Bit        Muxes := 4     
+	  17 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module ifetc32 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+Module extend 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+Module NPC 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 1     
+Module reg_mux 
+Detailed RTL Component Info : 
++---Muxes : 
+	   8 Input      5 Bit        Muxes := 1     
+	   8 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 1     
+Module regfile 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 34    
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 32    
+Module ALU_mux 
+Detailed RTL Component Info : 
++---Muxes : 
+	   6 Input     32 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 1     
+Module executs32 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	  10 Input     32 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	  10 Input      1 Bit        Muxes := 1     
+Module control32 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	  17 Input      4 Bit        Muxes := 1     
+	  14 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	   5 Input      3 Bit        Muxes := 3     
+	  10 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 2     
+	   6 Input      3 Bit        Muxes := 3     
+	   3 Input      3 Bit        Muxes := 1     
+	  17 Input      3 Bit        Muxes := 1     
+	  14 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	   4 Input      1 Bit        Muxes := 1     
+	  14 Input      1 Bit        Muxes := 4     
+	  17 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 10    
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5545] ROM "zerog" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "reg_mux_temp" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-3331] design NPC has unconnected port clk
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[31]
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[30]
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[29]
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[28]
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[27]
+WARNING: [Synth 8-3331] design NPC has unconnected port Instruction[26]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\U8/ALU_MODE_reg[2] )
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[31]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[30]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[29]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[28]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[27]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[26]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[25]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[24]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[23]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[22]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[21]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[20]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[19]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[18]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[17]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[16]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[15]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[14]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[13]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[12]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[11]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[10]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[9]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[8]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[7]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[6]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[5]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[4]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[3]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[2]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[1]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP1_reg[0]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[31]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[30]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[29]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[28]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[27]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[26]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[25]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[24]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[23]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[22]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[21]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[20]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[19]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[18]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[17]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[16]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[15]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[14]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[13]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[12]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[11]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[10]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[9]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[8]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[7]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[6]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[5]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[4]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[3]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[2]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[1]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U5/OP2_reg[0]) is unused and will be removed from module minisys.
+WARNING: [Synth 8-3332] Sequential element (U8/ALU_MODE_reg[2]) is unused and will be removed from module minisys.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 809.242 ; gain = 516.285
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'U0/UCLK/clk_out1' to pin 'U0/UCLK/bbstub_clk_out1/O'
+INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:22 . Memory (MB): peak = 809.242 ; gain = 516.285
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 1016.117 ; gain = 723.160
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 1016.117 ; gain = 723.160
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin wea[0]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[31]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[30]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[29]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[28]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[27]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[26]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[25]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[24]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[23]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[22]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[21]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[20]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[19]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[18]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[17]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[16]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[15]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[14]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[13]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[12]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[11]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[10]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[9]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[8]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[7]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[6]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[5]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[4]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[3]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[2]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[1]
+CRITICAL WARNING: [Synth 8-4442] BlackBox module \U9/instmem  has unconnected pin dina[0]
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1016.117 ; gain = 723.160
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 1016.117 ; gain = 723.160
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1016.117 ; gain = 723.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1016.117 ; gain = 723.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1016.117 ; gain = 723.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1016.117 ; gain = 723.160
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |cpuclk        |         1|
+|2     |ram           |         1|
+|3     |prgrom        |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |cpuclk |     1|
+|2     |prgrom |     1|
+|3     |ram    |     1|
+|4     |BUFG   |     3|
+|5     |CARRY4 |    24|
+|6     |LUT1   |     2|
+|7     |LUT2   |    74|
+|8     |LUT3   |    67|
+|9     |LUT4   |    97|
+|10    |LUT5   |   116|
+|11    |LUT6   |  1059|
+|12    |MUXF7  |   264|
+|13    |FDRE   |  1191|
+|14    |LD     |    87|
+|15    |LDC    |    32|
+|16    |IBUF   |     1|
+|17    |OBUF   |    70|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+----------+------+
+|      |Instance |Module    |Cells |
++------+---------+----------+------+
+|1     |top      |          |  3152|
+|2     |  U0     |cpuclk0   |     2|
+|3     |  U1     |dmemory32 |    32|
+|4     |  U2     |NPC       |    48|
+|5     |  U3     |reg_mux   |    70|
+|6     |  U4     |regfile   |  1972|
+|7     |  U6     |executs32 |    81|
+|8     |  U8     |control32 |   728|
+|9     |  U9     |ifetc32   |   145|
++------+---------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1016.117 ; gain = 723.160
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 33 critical warnings and 88 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:27 . Memory (MB): peak = 1016.117 ; gain = 366.762
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1016.117 ; gain = 723.160
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 407 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1016.117 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 119 instances were transformed.
+  LD => LDCE: 87 instances
+  LDC => LDCE: 32 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+97 Infos, 136 Warnings, 33 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:00:35 . Memory (MB): peak = 1016.117 ; gain = 734.625
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1016.117 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.runs/synth_1/minisys.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file minisys_utilization_synth.rpt -pb minisys_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Jun 24 20:24:14 2020...

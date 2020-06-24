@@ -42,6 +42,8 @@ module control32(
     assign Sign_Sel = Sel_Sign;
     reg IRWr;
     assign IRWrsel = IRWr;
+
+    
     assign PC_pre = op==`ins_jal?NPC:PC;
 
 
@@ -74,7 +76,6 @@ always@ *
 begin
     case(curr_state)
         `sifetch: begin next_state=`sidecode; end
-        `swait: begin next_state=`sifetch; end
         `sidecode:
         begin 
             case(op)
@@ -145,13 +146,6 @@ begin
             reg_mux_temp = `REG_MODE6; //不写寄存器
             WriteMemory = 0;
         end
-        `swait: 
-        begin 
-            IRWr=0; 
-            select_npc=0;
-            reg_mux_temp = `REG_MODE6; //不写寄存器
-            WriteMemory = 0;
-        end
         `sidecode:
         begin 
             IRWr=0; 
@@ -188,7 +182,7 @@ begin
                         `ins_or:   begin ALU = `OR;   ALU_MODE = `ALU_MODE0;end
                         `ins_xor:  begin ALU = `XOR;  ALU_MODE = `ALU_MODE0;end
                         `ins_nor:  begin ALU = `NOR;  ALU_MODE = `ALU_MODE0;end
-                        `ins_slt:  begin ALU = `SUB;  ALU_MODE = `ALU_MODE0;end
+                        `ins_slt:  begin ALU = `SLT;  ALU_MODE = `ALU_MODE0;end
                         `ins_sltu: begin ALU = `SUB;  ALU_MODE = `ALU_MODE0;end
                         `ins_sll:  begin ALU = `SLL;  ALU_MODE = `ALU_MODE1;end
                         `ins_srl:  begin ALU = `SRL;  ALU_MODE = `ALU_MODE1;end
@@ -210,7 +204,7 @@ begin
             `ins_sw:    begin ALU = `ADD; ALU_MODE = `ALU_MODE2; Sel_Sign = 1; end
             `ins_beq:   begin ALU = `SUB; ALU_MODE = `ALU_MODE0; NPC_MODE = `Beq; Sel_Sign = 1; select_npc=0;end
             `ins_bne:   begin ALU = `SUB; ALU_MODE = `ALU_MODE0; NPC_MODE = `Bne; Sel_Sign = 1; select_npc=0;end
-            `ins_bgtz:  begin ALU = `SUB; ALU_MODE = `ALU_MODE0; NPC_MODE = `Bgtz;Sel_Sign = 1; select_npc=0;end
+            `ins_bgtz:  begin ALU = `SLT; ALU_MODE = `ALU_MODE4; NPC_MODE = `Bgtz;Sel_Sign = 1; select_npc=0;end
             //`ins_jal:   begin  NPC_MODE = `J_Jal; end//regmode5是把{PC+4}写到$31里
             default:    begin select_npc=0; end
             endcase

@@ -4,7 +4,7 @@ module ALU_mux(
     input [2:0]ALU_MODE,
     input [31:0]RF_RD1,
     input [31:0]RF_RD2,
-    input [31:0]IM_10_6,
+    input [4:0]IM_10_6,
     input [31:0]EXTEND,
     output [31:0]OP_1,
     output [31:0]OP_2

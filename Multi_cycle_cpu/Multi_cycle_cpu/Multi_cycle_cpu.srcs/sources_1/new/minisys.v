@@ -1,9 +1,12 @@
 `timescale 1ns / 1ps
 module minisys(
     input fpga_rst,
-    input fpga_clk
+    input fpga_clk,
+        output [31:0]debug_wb_pc,
+    output debug_wb_rf_wen,
+    output [4:0] debug_wb_rf_wnum,
+    output[31:0] debug_wb_rf_wdata
     );
-    
     wire [31:0]read_data;
     wire Memwrite;
     wire clock;
@@ -28,10 +31,10 @@ module minisys(
     wire [31:0] EXTEND;
     wire [31:0] reg31;
     wire IRWr;
-    wire [31:0]debug_wb_pc;
-    wire debug_wb_rf_wen;
-    wire [4:0] debug_wb_rf_wnum;
-    wire[31:0] debug_wb_rf_wdata;
+//    wire [31:0]debug_wb_pc;
+//    wire debug_wb_rf_wen;
+//    wire [4:0] debug_wb_rf_wnum;
+//    wire[31:0] debug_wb_rf_wdata;
 
     //assign debug_wb_pc = PC;
     assign debug_wb_rf_wen = WDsel;

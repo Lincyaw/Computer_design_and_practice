@@ -12,7 +12,6 @@ module executs32(
 reg [31:0]ans;
 reg [31:0]anst;
 assign answer = anst;
-reg[1:0] zer;
 reg [1:0]zerog;
 assign zero = zerog;
 
@@ -20,7 +19,6 @@ assign zero = zerog;
 always@(posedge clk)
 begin
     anst <= ans;
-    zer <= zerog;
 end
 
 
@@ -47,9 +45,9 @@ begin
         `ADD:
             ans = first+second;
         `SUB:
-        begin
             ans = first-second;
-        end
+        `SLT:
+            ans = ($signed(first)) < ($signed(second)) ? 32'hffffffff:32'h1;
         `SLL:
             ans = second<<first;
         `SRL:

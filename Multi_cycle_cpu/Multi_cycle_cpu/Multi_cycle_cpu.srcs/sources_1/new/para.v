@@ -13,13 +13,14 @@
 `define OR 4'd7
 `define XOR 4'd8
 `define NOR 4'd9
+`define SLT 4'd10
 
 `define Jr 3'd0
 `define J_Jal 3'd1
 `define Beq 3'd2
 `define Bgtz 3'd3
-`define Bne 3'd3
-`define Normal 3'd4
+`define Bne 3'd4
+`define Normal 3'd5
 
 `define ins_add 6'b100000
 `define ins_addu 6'b100001

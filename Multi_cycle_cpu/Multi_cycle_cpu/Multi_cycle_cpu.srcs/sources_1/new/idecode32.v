@@ -48,7 +48,7 @@ module NPC(
                 pc_t <= zerog == `EQUAL? PC+4 : PC+(pc_ext<<2);
             end
             `Bgtz:begin
-                pc_t <= zerog == `GREATER? (pc_ext<<2):PC+4;
+                pc_t <= zerog == `GREATER? PC+(pc_ext<<2):PC+4;
             end
             `Normal: pc_t <= PC+4;
         endcase
