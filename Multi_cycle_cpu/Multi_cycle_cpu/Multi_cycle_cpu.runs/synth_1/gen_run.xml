@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1593001400">
+<GenRun Id="synth_1" LaunchPart="xc7a100tfgg484-1" LaunchTime="1593060942">
   <File Type="PA-TCL" Name="minisys.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="minisys_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="minisys_reports.tcl"/>
   <File Type="RDS-RDS" Name="minisys.vds"/>
   <File Type="RDS-UTIL" Name="minisys_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="minisys_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="minisys.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="minisys_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="minisys_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/para.v">

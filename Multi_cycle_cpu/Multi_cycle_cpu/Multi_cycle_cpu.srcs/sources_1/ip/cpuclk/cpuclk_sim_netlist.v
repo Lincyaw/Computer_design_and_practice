@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Wed Jun 24 08:23:24 2020
+// Date        : Thu Jun 25 12:55:57 2020
 // Host        : DESKTOP-KMIMTOV running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top cpuclk -prefix
-//               cpuclk_ cpuclk_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.srcs/sources_1/ip/cpuclk/cpuclk_sim_netlist.v
 // Design      : cpuclk
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -27,6 +27,7 @@ module cpuclk
         .clk_out1(clk_out1));
 endmodule
 
+(* ORIG_REF_NAME = "cpuclk_clk_wiz" *) 
 module cpuclk_cpuclk_clk_wiz
    (clk_out1,
     clk_in1);
@@ -68,11 +69,11 @@ module cpuclk_cpuclk_clk_wiz
   (* BOX_TYPE = "PRIMITIVE" *) 
   PLLE2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
-    .CLKFBOUT_MULT(46),
+    .CLKFBOUT_MULT(42),
     .CLKFBOUT_PHASE(0.000000),
     .CLKIN1_PERIOD(10.000000),
     .CLKIN2_PERIOD(0.000000),
-    .CLKOUT0_DIVIDE(40),
+    .CLKOUT0_DIVIDE(7),
     .CLKOUT0_DUTY_CYCLE(0.500000),
     .CLKOUT0_PHASE(0.000000),
     .CLKOUT1_DIVIDE(1),

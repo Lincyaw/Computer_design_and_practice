@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date             : Wed Jun 24 20:26:31 2020
+| Date             : Thu Jun 25 12:59:20 2020
 | Host             : DESKTOP-KMIMTOV running 64-bit major release  (build 9200)
 | Command          : report_power -file minisys_power_routed.rpt -pb minisys_power_summary_routed.pb -rpx minisys_power_routed.rpx
 | Design           : minisys
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.244        |
+| Total On-Chip Power (W)  | 0.229        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.151        |
+| Dynamic (W)              | 0.136        |
 | Device Static (W)        | 0.093        |
 | Effective TJA (C/W)      | 2.7          |
-| Max Ambient (C)          | 84.3         |
-| Junction Temperature (C) | 25.7         |
+| Max Ambient (C)          | 84.4         |
+| Junction Temperature (C) | 25.6         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,20 +52,20 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Clocks         |     0.008 |        5 |       --- |             --- |
-| Slice Logic    |     0.004 |     3192 |       --- |             --- |
-|   LUT as Logic |     0.004 |     1396 |     63400 |            2.20 |
-|   CARRY4       |    <0.001 |       24 |     15850 |            0.15 |
-|   BUFG         |    <0.001 |        3 |        32 |            9.38 |
-|   Register     |    <0.001 |     1314 |    126800 |            1.04 |
-|   F7/F8 Muxes  |    <0.001 |      264 |     63400 |            0.42 |
-|   Others       |     0.000 |      111 |       --- |             --- |
-| Signals        |     0.005 |     2693 |       --- |             --- |
-| Block RAM      |     0.031 |       29 |       135 |           21.48 |
-| PLL            |     0.103 |        1 |         6 |           16.67 |
-| I/O            |     0.001 |       72 |       285 |           25.26 |
+| Clocks         |     0.006 |        5 |       --- |             --- |
+| Slice Logic    |     0.002 |     3343 |       --- |             --- |
+|   LUT as Logic |     0.002 |     1408 |     63400 |            2.22 |
+|   CARRY4       |    <0.001 |       28 |     15850 |            0.18 |
+|   BUFG         |    <0.001 |        4 |        32 |           12.50 |
+|   Register     |    <0.001 |     1379 |    126800 |            1.09 |
+|   F7/F8 Muxes  |    <0.001 |      256 |     63400 |            0.40 |
+|   Others       |     0.000 |      113 |       --- |             --- |
+| Signals        |     0.004 |     2801 |       --- |             --- |
+| Block RAM      |     0.025 |       29 |       135 |           21.48 |
+| PLL            |     0.099 |        1 |         6 |           16.67 |
+| I/O            |    <0.001 |       72 |       285 |           25.26 |
 | Static Power   |     0.093 |          |           |                 |
-| Total          |     0.244 |          |           |                 |
+| Total          |     0.229 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,8 +75,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.070 |       0.055 |      0.016 |
-| Vccaux    |       1.800 |     0.070 |       0.052 |      0.018 |
+| Vccint    |       1.000 |     0.060 |       0.044 |      0.016 |
+| Vccaux    |       1.800 |     0.068 |       0.050 |      0.018 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.004 |       0.000 |      0.004 |
@@ -84,7 +84,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.004 |       0.003 |      0.001 |
+| Vccbram   |       1.000 |     0.003 |       0.002 |      0.001 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -131,8 +131,8 @@ Table of Contents
 +-----------------+------------------------------+-----------------+
 | Clock           | Domain                       | Constraint (ns) |
 +-----------------+------------------------------+-----------------+
-| clk_out1_cpuclk | U0/UCLK/inst/clk_out1_cpuclk |             6.7 |
-| clkfbout_cpuclk | U0/UCLK/inst/clkfbout_cpuclk |            10.0 |
+| clk_out1_cpuclk | U0/UCLK/inst/clk_out1_cpuclk |             8.3 |
+| clkfbout_cpuclk | U0/UCLK/inst/clkfbout_cpuclk |            50.0 |
 | fpga_clk        | fpga_clk                     |            10.0 |
 +-----------------+------------------------------+-----------------+
 
@@ -146,19 +146,19 @@ Table of Contents
 +-------------+-----------+
 | Name        | Power (W) |
 +-------------+-----------+
-| minisys     |     0.151 |
-|   U0        |     0.104 |
-|     UCLK    |     0.104 |
-|       inst  |     0.104 |
-|   U1        |     0.016 |
-|     ram     |     0.016 |
-|       U0    |     0.016 |
-|   U4        |     0.007 |
+| minisys     |     0.136 |
+|   U0        |     0.099 |
+|     UCLK    |     0.099 |
+|       inst  |     0.099 |
+|   U1        |     0.013 |
+|     ram     |     0.013 |
+|       U0    |     0.013 |
+|   U4        |     0.006 |
 |   U6        |     0.001 |
-|   U8        |     0.005 |
-|   U9        |     0.016 |
-|     instmem |     0.016 |
-|       U0    |     0.016 |
+|   U8        |     0.003 |
+|   U9        |     0.013 |
+|     instmem |     0.012 |
+|       U0    |     0.012 |
 +-------------+-----------+
 
 

@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.sim/sim_1/behav/xsim/xsim.dir/mycpu_tb_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Wed Jun 24 23:37:57 2020" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Thu Jun 25 12:55:52 2020" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2018.3 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2405991" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "07f83943-1da9-449e-8683-e5c4fa4cf2b3" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "b9e2cf37c8cd4a6b922778fa7bc004cb" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "335" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "337" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz" -context "user_environment"
@@ -36,7 +36,7 @@ webtalk_add_data -client xsim -key Total_Nets -value "0" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Processes -value "647" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Total_Instances -value "32" -context "xsim\\usage"
 webtalk_add_data -client xsim -key Xilinx_HDL_Libraries_Used -value "secureip unimacro_ver unisims_ver " -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Time -value "2.00_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Compiler_Memory -value "117988_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 655319272 -regid "" -xml C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.sim/sim_1/behav/xsim/xsim.dir/mycpu_tb_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.sim/sim_1/behav/xsim/xsim.dir/mycpu_tb_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.sim/sim_1/behav/xsim/xsim.dir/mycpu_tb_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Compiler_Time -value "2.20_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Compiler_Memory -value "118804_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 3984609557 -regid "" -xml C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.sim/sim_1/behav/xsim/xsim.dir/mycpu_tb_behav/webtalk/usage_statistics_ext_xsim.xml -html C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.sim/sim_1/behav/xsim/xsim.dir/mycpu_tb_behav/webtalk/usage_statistics_ext_xsim.html -wdm C:/Users/fay/Documents/GitHub/Computer_design_and_practice/Multi_cycle_cpu/Multi_cycle_cpu/Multi_cycle_cpu.sim/sim_1/behav/xsim/xsim.dir/mycpu_tb_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

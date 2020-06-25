@@ -31,12 +31,6 @@ module minisys(
     wire [31:0] EXTEND;
     wire [31:0] reg31;
     wire IRWr;
-//    wire [31:0]debug_wb_pc;
-//    wire debug_wb_rf_wen;
-//    wire [4:0] debug_wb_rf_wnum;
-//    wire[31:0] debug_wb_rf_wdata;
-
-    //assign debug_wb_pc = PC;
     assign debug_wb_rf_wen = WDsel;
     assign debug_wb_rf_wnum = WriteAddr;
     assign debug_wb_rf_wdata = WD;
