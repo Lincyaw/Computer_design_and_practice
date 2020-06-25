@@ -6,14 +6,14 @@ module control32(
     input rst,
     input [31:0]instruction,
     input [31:0]NPC,
-    output [31:0]PC_curr,
-    output [3:0]ALUop,
-    output [2:0]ALU_MODESEL,
-    output [2:0]reg_mux_mode,
-    output [2:0]NPC_SEL,
-    output Memwrite,
-    output Sign_Sel,
-    output IRWrsel,
+    output reg[31:0]PC_curr,
+    output reg[3:0]ALUop,
+    output reg[2:0]ALU_MODESEL,
+    output reg[2:0]reg_mux_mode,
+    output reg[2:0]NPC_SEL,
+    output reg Memwrite,
+    output reg Sign_Sel,
+    output reg IRWrsel,
     output [31:0]PC_pre
     );
 
@@ -27,46 +27,13 @@ module control32(
     wire [15:0]imm16 = instruction[15:0];
     wire [25:0]imm26 = instruction[25:0];
     reg select_npc=0;
-
-    reg [3:0] ALU;
-    assign ALUop = ALU;
-    reg [2:0]reg_mux_temp=`REG_MODE6;
-    assign reg_mux_mode = reg_mux_temp;
-    reg [2:0]ALU_MODE;
-    assign ALU_MODESEL = ALU_MODE;
-    reg [2:0]NPC_MODE = `Normal;
-    assign NPC_SEL = NPC_MODE;
-    reg WriteMemory;
-    assign Memwrite = WriteMemory;
-    reg Sel_Sign;
-    assign Sign_Sel = Sel_Sign;
-    reg IRWr;
-    assign IRWrsel = IRWr;
-
-    
-    assign PC_pre = op==`ins_jal?NPC:PC;
-
-
-
-
-
-reg [2:0]curr_state=0;
-reg [2:0]next_state;
-
-
-reg [31:0]PC;
-assign PC_curr = PC;
+    reg [2:0]curr_state=0;
+    reg [2:0]next_state;
+    assign PC_pre = op==`ins_jal?NPC:PC_curr;
 
 always@(negedge clk)
 begin
-    if(rst)
-    begin
-        PC<=0;
-    end
-    else if(select_npc)
-    begin
-        PC <= NPC;
-    end
+    PC_curr <= rst?0:(select_npc?NPC:PC_curr);
 end
 
 
@@ -75,56 +42,43 @@ end
 always@ *
 begin
     case(curr_state)
-        `sifetch: begin next_state=`sidecode; end
+        `sifetch:        begin next_state=`sidecode;                             end
         `sidecode:
         begin 
             case(op)
-            6'b000000: begin 
-                if(funct==`ins_jr) begin next_state = `sifetch; end 
-                else begin next_state = `sexecute; end
-                end//jr不需要考虑ALU的运算情况, 因为用不到
-            `ins_j: begin next_state = `sifetch;end
-            `ins_jal: begin next_state = `swb; end
-            default: begin next_state = `sexecute; end
+            6'b000000:   begin next_state = (funct==`ins_jr)?`sifetch:`sexecute; end
+            `ins_j:      begin next_state = `sifetch;                            end
+            `ins_jal:    begin next_state = `swb;                                end
+            default:     begin next_state = `sexecute;                           end
             endcase
         end
         `sexecute: 
         begin 
             case(op)
             `ins_beq:    next_state = `sifetch;
-            `ins_bne:   next_state = `sifetch;
-            `ins_lw:    next_state = `smem;
-            `ins_sw:   next_state = `smem;
-            default:    next_state = `swb;
+            `ins_bne:    next_state = `sifetch;
+            `ins_lw:     next_state = `smem;
+            `ins_sw:     next_state = `smem;
+            default:     next_state = `swb;
             endcase
         end
         `smem:     
         begin 
             case(op)
-            `ins_lw:    next_state = `swb;
-            `ins_sw:   next_state = `sifetch;
-            default:    next_state = `sifetch;
+            `ins_lw:     next_state = `swb;
+            `ins_sw:     next_state = `sifetch;
+            default:     next_state = `sifetch;
             endcase
         end
-        `swb:      
-        begin 
-            next_state = `sifetch;
-        end
-        default: begin next_state = `sifetch; end
+        `swb:    begin   next_state = `sifetch; end 
+        default: begin   next_state = `sifetch; end
     endcase
 end
 
 
 always@(posedge clk)
 begin
-    if(rst)
-    begin
-        curr_state <= 0;
-    end
-    else
-    begin
-        curr_state <= next_state;
-    end
+    curr_state <= rst?0:next_state;
 end
 
 reg flag = 0;
@@ -133,187 +87,107 @@ begin
     case (curr_state)
         `sifetch:  
         begin 
-             IRWr=1;
-            if(!flag)
-            begin
-                select_npc=0;
-                flag=1;
-            end
-            else
-            begin
-                select_npc=1;
-            end
-            reg_mux_temp = `REG_MODE6; //不写寄存器
-            WriteMemory = 0;
+            IRWrsel=1;
+            select_npc = !flag?0:1;
+            flag = !flag?1:flag;
+            reg_mux_mode = `REG_MODE6; //不写寄存器
+            Memwrite = 0;
         end
         `sidecode:
         begin 
-            IRWr=0; 
-            //select_npc=0;
-            reg_mux_temp = `REG_MODE6; //不写寄存器
-            WriteMemory = 0;
+            IRWrsel=0; 
+            reg_mux_mode = `REG_MODE6; //不写寄存器
+            Memwrite = 0;
+            select_npc=0;
             case(op)
-            6'b000000:
-                begin
-                    if(funct==`ins_jr) begin NPC_MODE = `Jr; end
-                    else begin NPC_MODE = `Normal;select_npc=0;end
-                end
-            `ins_j:     begin  NPC_MODE = `J_Jal; select_npc=0; end 
-            `ins_jal:   begin  NPC_MODE = `J_Jal; end//regmode5是把{PC+4}写到$31里
-            default:    begin  NPC_MODE = `Normal;select_npc=0; end
+            6'b000000:  begin  NPC_SEL = (funct==`ins_jr)?`Jr:`Normal; end
+            `ins_j:     begin  NPC_SEL = `J_Jal;  end 
+            `ins_jal:   begin  NPC_SEL = `J_Jal;  end
+            default:    begin  NPC_SEL = `Normal; end
             endcase
         end
         `sexecute: 
         begin 
-            IRWr=0; 
+            IRWrsel=0; 
             select_npc=0;
-            reg_mux_temp = `REG_MODE6; //不写寄存器
-            WriteMemory = 0;
-            //NPC_MODE = `Normal;
+            reg_mux_mode = `REG_MODE6; //不写寄存器
+            Memwrite = 0;
             case(op)
             6'b000000:
                 begin
                     case (funct)
-                        `ins_add:  begin ALU = `ADD;  ALU_MODE = `ALU_MODE0;end
-                        `ins_addu: begin ALU = `ADD;  ALU_MODE = `ALU_MODE0;end 
-                        `ins_sub:  begin ALU = `SUB;  ALU_MODE = `ALU_MODE0;end
-                        `ins_subu: begin ALU = `SUB;  ALU_MODE = `ALU_MODE0;end
-                        `ins_and:  begin ALU = `AND;  ALU_MODE = `ALU_MODE0;end
-                        `ins_or:   begin ALU = `OR;   ALU_MODE = `ALU_MODE0;end
-                        `ins_xor:  begin ALU = `XOR;  ALU_MODE = `ALU_MODE0;end
-                        `ins_nor:  begin ALU = `NOR;  ALU_MODE = `ALU_MODE0;end
-                        `ins_slt:  begin ALU = `SLT;  ALU_MODE = `ALU_MODE0;end
-                        `ins_sltu: begin ALU = `SUB;  ALU_MODE = `ALU_MODE0;end
-                        `ins_sll:  begin ALU = `SLL;  ALU_MODE = `ALU_MODE1;end
-                        `ins_srl:  begin ALU = `SRL;  ALU_MODE = `ALU_MODE1;end
-                        `ins_sra:  begin ALU = `SRA;  ALU_MODE = `ALU_MODE1;end
-                        `ins_sllv: begin ALU = `SLL;  ALU_MODE = `ALU_MODE0;end
-                        `ins_srlv: begin ALU = `SRL;  ALU_MODE = `ALU_MODE0;end
-                        `ins_srav: begin ALU = `SRA;  ALU_MODE = `ALU_MODE0;end
+                        `ins_add:  begin ALUop = `ADD;  ALU_MODESEL = `ALU_MODE0;end
+                        `ins_addu: begin ALUop = `ADD;  ALU_MODESEL = `ALU_MODE0;end 
+                        `ins_sub:  begin ALUop = `SUB;  ALU_MODESEL = `ALU_MODE0;end
+                        `ins_subu: begin ALUop = `SUB;  ALU_MODESEL = `ALU_MODE0;end
+                        `ins_and:  begin ALUop = `AND;  ALU_MODESEL = `ALU_MODE0;end
+                        `ins_or:   begin ALUop = `OR;   ALU_MODESEL = `ALU_MODE0;end
+                        `ins_xor:  begin ALUop = `XOR;  ALU_MODESEL = `ALU_MODE0;end
+                        `ins_nor:  begin ALUop = `NOR;  ALU_MODESEL = `ALU_MODE0;end
+                        `ins_slt:  begin ALUop = `SLT;  ALU_MODESEL = `ALU_MODE0;end
+                        `ins_sltu: begin ALUop = `SUB;  ALU_MODESEL = `ALU_MODE0;end
+                        `ins_sll:  begin ALUop = `SLL;  ALU_MODESEL = `ALU_MODE1;end
+                        `ins_srl:  begin ALUop = `SRL;  ALU_MODESEL = `ALU_MODE1;end
+                        `ins_sra:  begin ALUop = `SRA;  ALU_MODESEL = `ALU_MODE1;end
+                        `ins_sllv: begin ALUop = `SLL;  ALU_MODESEL = `ALU_MODE0;end
+                        `ins_srlv: begin ALUop = `SRL;  ALU_MODESEL = `ALU_MODE0;end
+                        `ins_srav: begin ALUop = `SRA;  ALU_MODESEL = `ALU_MODE0;end
                         default:   begin end
                     endcase
                 end
-            `ins_addi:  begin ALU = `ADD; ALU_MODE = `ALU_MODE2; Sel_Sign = 1; end
-            `ins_addiu: begin ALU = `ADD; ALU_MODE = `ALU_MODE2; Sel_Sign = 1; end
-            `ins_andi:  begin ALU = `AND; ALU_MODE = `ALU_MODE2; Sel_Sign = 0; end
-            `ins_ori:   begin ALU = `OR;  ALU_MODE = `ALU_MODE2; Sel_Sign = 0; end
-            `ins_xori:  begin ALU = `XOR; ALU_MODE = `ALU_MODE2; Sel_Sign = 0; end
-            `ins_sltiu: begin ALU = `SUB; ALU_MODE = `ALU_MODE2; Sel_Sign = 0; end
-            `ins_lui:   begin ALU = `SLL; ALU_MODE = `ALU_MODE3; Sel_Sign = 0; end //将立即数左移16位
-            `ins_lw:    begin ALU = `ADD; ALU_MODE = `ALU_MODE2; Sel_Sign = 1; end   
-            `ins_sw:    begin ALU = `ADD; ALU_MODE = `ALU_MODE2; Sel_Sign = 1; end
-            `ins_beq:   begin ALU = `SUB; ALU_MODE = `ALU_MODE0; NPC_MODE = `Beq; Sel_Sign = 1; select_npc=0;end
-            `ins_bne:   begin ALU = `SUB; ALU_MODE = `ALU_MODE0; NPC_MODE = `Bne; Sel_Sign = 1; select_npc=0;end
-            `ins_bgtz:  begin ALU = `SLT; ALU_MODE = `ALU_MODE4; NPC_MODE = `Bgtz;Sel_Sign = 1; select_npc=0;end
-            //`ins_jal:   begin  NPC_MODE = `J_Jal; end//regmode5是把{PC+4}写到$31里
+            `ins_addi:  begin ALUop = `ADD; ALU_MODESEL = `ALU_MODE2; Sign_Sel = 1; end
+            `ins_addiu: begin ALUop = `ADD; ALU_MODESEL = `ALU_MODE2; Sign_Sel = 1; end
+            `ins_andi:  begin ALUop = `AND; ALU_MODESEL = `ALU_MODE2; Sign_Sel = 0; end
+            `ins_ori:   begin ALUop = `OR;  ALU_MODESEL = `ALU_MODE2; Sign_Sel = 0; end
+            `ins_xori:  begin ALUop = `XOR; ALU_MODESEL = `ALU_MODE2; Sign_Sel = 0; end
+            `ins_sltiu: begin ALUop = `SUB; ALU_MODESEL = `ALU_MODE2; Sign_Sel = 0; end
+            `ins_lui:   begin ALUop = `SLL; ALU_MODESEL = `ALU_MODE3; Sign_Sel = 0; end //将立即数左移16位
+            `ins_lw:    begin ALUop = `ADD; ALU_MODESEL = `ALU_MODE2; Sign_Sel = 1; end   
+            `ins_sw:    begin ALUop = `ADD; ALU_MODESEL = `ALU_MODE2; Sign_Sel = 1; end
+            `ins_beq:   begin ALUop = `SUB; ALU_MODESEL = `ALU_MODE0; NPC_SEL = `Beq; Sign_Sel = 1; select_npc=0;end
+            `ins_bne:   begin ALUop = `SUB; ALU_MODESEL = `ALU_MODE0; NPC_SEL = `Bne; Sign_Sel = 1; select_npc=0;end
+            `ins_bgtz:  begin ALUop = `SLT; ALU_MODESEL = `ALU_MODE4; NPC_SEL = `Bgtz;Sign_Sel = 1; select_npc=0;end
             default:    begin select_npc=0; end
             endcase
         end
         `smem:     
         begin 
-            IRWr=0; 
+            IRWrsel=0; 
             select_npc=0;
-            reg_mux_temp = `REG_MODE6; //不写寄存器
-            case (op)
-             `ins_sw:  begin WriteMemory = 1; end
-                default: WriteMemory = 0;
-            endcase
+            reg_mux_mode = `REG_MODE6; //不写寄存器
+            Memwrite = op==`ins_sw?1:0;
         end
 
         `swb:      
         begin 
-            IRWr=0; 
+            IRWrsel=0; 
             select_npc=0;
                    case(op)
                     6'b000000:
                         begin
                             case (funct)
-                                `ins_slt:  begin reg_mux_temp = `REG_MODE2; end
-                                `ins_sltu: begin reg_mux_temp = `REG_MODE2; end
-                                `ins_sll:  begin 
-                                    if(instruction[31:0]==0)
-                                    begin
-                                        reg_mux_temp = `REG_MODE6;
-                                    end
-                                    else
-                                    begin
-                                        reg_mux_temp = `REG_MODE0;  
-                                    end
-                                end
-                                `ins_jr:   begin  reg_mux_temp = `REG_MODE6; end //jr不需要考虑ALU的运算情况, 因为用不到
-                                default:    begin  reg_mux_temp = `REG_MODE0;end
+                                `ins_slt:  begin reg_mux_mode = `REG_MODE2; end
+                                `ins_sltu: begin reg_mux_mode = `REG_MODE2; end
+                                `ins_sll:  begin reg_mux_mode = instruction[31:0]==0?`REG_MODE6:`REG_MODE0; end
+                                `ins_jr:   begin reg_mux_mode = `REG_MODE6; end
+                                default:   begin reg_mux_mode = `REG_MODE0;end
                             endcase
                         end
-                    `ins_sltiu: begin  reg_mux_temp = `REG_MODE1;  end
-                    `ins_lw:    begin  reg_mux_temp = `REG_MODE4;  end   
-                    `ins_sw:    begin  reg_mux_temp = `REG_MODE6;  end
-                    `ins_beq:   begin  reg_mux_temp = `REG_MODE6;  end
-                    `ins_bne:   begin  reg_mux_temp = `REG_MODE6;  end
-                    `ins_bgtz:  begin  reg_mux_temp = `REG_MODE6;  end
-                    `ins_j:     begin  reg_mux_temp = `REG_MODE6;  end 
-                    `ins_jal:   begin  reg_mux_temp = `REG_MODE5;  end//regmode5是把{PC+4}写到$31里
-                    default:    begin  reg_mux_temp = `REG_MODE3; end
+                    `ins_sltiu: begin  reg_mux_mode = `REG_MODE1;  end
+                    `ins_lw:    begin  reg_mux_mode = `REG_MODE4;  end   
+                    `ins_sw:    begin  reg_mux_mode = `REG_MODE6;  end
+                    `ins_beq:   begin  reg_mux_mode = `REG_MODE6;  end
+                    `ins_bne:   begin  reg_mux_mode = `REG_MODE6;  end
+                    `ins_bgtz:  begin  reg_mux_mode = `REG_MODE6;  end
+                    `ins_j:     begin  reg_mux_mode = `REG_MODE6;  end 
+                    `ins_jal:   begin  reg_mux_mode = `REG_MODE5;  end//regmode5是把{PC+4}写到$31里
+                    default:    begin  reg_mux_mode = `REG_MODE3; end
                     endcase
         end
-        default: begin select_npc=0;  end
+        default: begin select_npc=0; end
     endcase
 end
 
-
-
-
-//    always @ *
-//    begin
-//        case(op)
-//        6'b000000:
-//            begin
-//                case (funct)
-//                    `ins_add:  begin ALU = `ADD;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_addu: begin ALU = `ADD;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end 
-//                    `ins_sub:  begin ALU = `SUB;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_subu: begin ALU = `SUB;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_and:  begin ALU = `AND;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_or:   begin ALU = `OR;   reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_xor:  begin ALU = `XOR;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_nor:  begin ALU = `NOR;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_slt:  begin ALU = `SUB;  reg_mux_temp = zero_g==`SMALLER?`REG_MODE1:`REG_MODE2; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_sltu: begin ALU = `SUB;  reg_mux_temp = zero_g==`SMALLER?`REG_MODE1:`REG_MODE2; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_sll:  begin 
-//                        if(instruction[31:0]==0)
-//                        begin
-//                            NPC_MODE = `Normal; WriteMemory = 0; reg_mux_temp = `REG_MODE6;
-//                        end
-//                        else
-//                        begin
-//                            ALU = `SLL;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE1; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; 
-//                        end
-//                    end
-//                    `ins_srl:  begin ALU = `SRL;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE1; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_sra:  begin ALU = `SRA;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE1; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_sllv: begin ALU = `SLL;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_srlv: begin ALU = `SRL;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_srav: begin ALU = `SRA;  reg_mux_temp = `REG_MODE0; ALU_MODE = `ALU_MODE0; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//                    `ins_jr:begin NPC_MODE = `Jr; reg_mux_temp = `REG_MODE6; WriteMemory = 0; end //jr不需要考虑ALU的运算情况, 因为用不到
-//                    default:    begin NPC_MODE = `Normal; WriteMemory = 0; reg_mux_temp = `REG_MODE6;end
-//                endcase
-//            end
-//        `ins_addi:  begin ALU = `ADD;  reg_mux_temp = `REG_MODE3; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 1; end
-//        `ins_addiu: begin ALU = `ADD;  reg_mux_temp = `REG_MODE3; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 1; end
-//        `ins_andi:  begin ALU = `AND;  reg_mux_temp = `REG_MODE3; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//        `ins_ori:   begin ALU = `OR;   reg_mux_temp = `REG_MODE3; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//        `ins_xori:  begin ALU = `XOR;  reg_mux_temp = `REG_MODE3; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//        `ins_sltiu: begin ALU = `SUB;  reg_mux_temp = zero_g==`SMALLER?`REG_MODE1:`REG_MODE2; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end
-//        `ins_lui:   begin ALU = `SLL;  reg_mux_temp = `REG_MODE3; ALU_MODE = `ALU_MODE3; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 0; end //将立即数左移16位
-//        `ins_lw:    begin ALU = `ADD;  reg_mux_temp = `REG_MODE4; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 0; Sel_Sign = 1; end   
-//        `ins_sw:    begin ALU = `ADD;  reg_mux_temp = `REG_MODE6; ALU_MODE = `ALU_MODE2; NPC_MODE = `Normal; WriteMemory = 1; Sel_Sign = 1; end
-//        `ins_beq:   begin ALU = `SUB;  reg_mux_temp = `REG_MODE6; ALU_MODE = `ALU_MODE0; NPC_MODE = `Beq;    WriteMemory = 0; Sel_Sign = 1; end
-//        `ins_bne:   begin ALU = `SUB;  reg_mux_temp = `REG_MODE6; ALU_MODE = `ALU_MODE0; NPC_MODE = `Bne;    WriteMemory = 0; Sel_Sign = 1; end
-//        `ins_bgtz:  begin ALU = `SUB;  reg_mux_temp = `REG_MODE6; ALU_MODE = `ALU_MODE0; NPC_MODE = `Bgtz;   WriteMemory = 0; Sel_Sign = 1; end
-//        `ins_j:     begin reg_mux_temp = `REG_MODE6; NPC_MODE = `J_Jal; WriteMemory = 0; Sel_Sign = 0; end 
-//        `ins_jal:   begin reg_mux_temp = `REG_MODE5; NPC_MODE = `J_Jal; WriteMemory = 0; Sel_Sign = 0; end//regmode5是把{PC+4}写到$31里
-//        default:    begin NPC_MODE = `Normal; WriteMemory = 0; reg_mux_temp = `REG_MODE6; end
-//        endcase
-//    end
 endmodule
 
 

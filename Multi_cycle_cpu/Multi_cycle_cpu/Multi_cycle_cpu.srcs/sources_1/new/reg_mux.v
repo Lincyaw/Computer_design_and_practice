@@ -5,30 +5,24 @@ module reg_mux(
     input [1:0]zero_g,
     input [4:0]IMD20_16,
     input [4:0]IMD15_11,
-    output [4:0]WriteAddr,
+    output reg[4:0]WriteAddr,
     input [31:0]WD_ALU,
     input [31:0]WD_DMRD,
     input [31:0]WD_PC4,
-    output [31:0]WD,
-    output WDsel
+    output reg[31:0]WD,
+    output reg WDsel
     );
-    reg [4:0]Write;
-    assign WriteAddr = Write;
-    reg [31:0]WD_out;
-    assign WD = WD_out;
 
-    reg WD_sel;
-    assign WDsel = WD_sel;
     always@*
     begin
         case(mode)
-        `REG_MODE0: begin Write = IMD15_11; WD_out = WD_ALU; WD_sel = 1; end
-        `REG_MODE1: begin Write = IMD20_16; WD_out = (zero_g==`SMALLER) ? 32'b1:32'b0; WD_sel = 1; end
-        `REG_MODE2: begin Write = IMD15_11; WD_out = (zero_g==`SMALLER) ? 32'b1:32'b0; WD_sel = 1; end
-        `REG_MODE3: begin Write = IMD20_16; WD_out = WD_ALU; WD_sel = 1; end
-        `REG_MODE4: begin Write = IMD20_16; WD_out = WD_DMRD; WD_sel = 1; end 
-        `REG_MODE5: begin Write = 5'b11111; WD_out = WD_PC4; WD_sel = 1; end  //$31
-        `REG_MODE6: begin WD_sel = 0; end
+        `REG_MODE0: begin WriteAddr = IMD15_11; WD = WD_ALU; WDsel = 1; end
+        `REG_MODE1: begin WriteAddr = IMD20_16; WD = (zero_g==`SMALLER) ? 32'b1:32'b0; WDsel = 1; end
+        `REG_MODE2: begin WriteAddr = IMD15_11; WD = (zero_g==`SMALLER) ? 32'b1:32'b0; WDsel = 1; end
+        `REG_MODE3: begin WriteAddr = IMD20_16; WD = WD_ALU; WDsel = 1; end
+        `REG_MODE4: begin WriteAddr = IMD20_16; WD = WD_DMRD; WDsel = 1; end 
+        `REG_MODE5: begin WriteAddr = 5'b11111; WD = WD_PC4; WDsel = 1; end  //$31
+        `REG_MODE6: begin WDsel = 0; end
         endcase
     end
 

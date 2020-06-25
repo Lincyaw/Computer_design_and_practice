@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Thu Jun 25 12:59:17 2020
+| Date         : Thu Jun 25 19:41:47 2020
 | Host         : DESKTOP-KMIMTOV running 64-bit major release  (build 9200)
 | Command      : report_drc -file minisys_drc_routed.rpt -pb minisys_drc_routed.pb -rpx minisys_drc_routed.rpx
 | Design       : minisys
@@ -24,14 +24,14 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 11
+             Violations found: 10
 +----------+------------------+-----------------------------------------------------+------------+
 | Rule     | Severity         | Description                                         | Violations |
 +----------+------------------+-----------------------------------------------------+------------+
 | NSTD-1   | Critical Warning | Unspecified I/O Standard                            | 1          |
 | UCIO-1   | Critical Warning | Unconstrained Logical Port                          | 1          |
 | CFGBVS-1 | Warning          | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
-| PDRC-153 | Warning          | Gated clock check                                   | 8          |
+| PDRC-153 | Warning          | Gated clock check                                   | 7          |
 +----------+------------------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -61,42 +61,37 @@ Related violations: <none>
 
 PDRC-153#1 Warning
 Gated clock check  
-Net U8/WriteMemory_reg_i_2_n_3 is a gated clock net sourced by a combinational pin U8/WriteMemory_reg_i_2/O, cell U8/WriteMemory_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net U8/Memwrite_reg_i_2_n_4 is a gated clock net sourced by a combinational pin U8/Memwrite_reg_i_2/O, cell U8/Memwrite_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#2 Warning
 Gated clock check  
-Net U8/flag_reg_i_1_n_3 is a gated clock net sourced by a combinational pin U8/flag_reg_i_1/O, cell U8/flag_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net U8/Sign_Sel_reg_i_2_n_4 is a gated clock net sourced by a combinational pin U8/Sign_Sel_reg_i_2/O, cell U8/Sign_Sel_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#3 Warning
 Gated clock check  
-Net U8/reg_mux_temp_reg[0]_0 is a gated clock net sourced by a combinational pin U8/WD_sel_reg_i_1/O, cell U8/WD_sel_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net U8/flag_reg_i_1_n_4 is a gated clock net sourced by a combinational pin U8/flag_reg_i_1/O, cell U8/flag_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#4 Warning
 Gated clock check  
-Net U8/reg_mux_temp_reg[2]_i_2_n_3 is a gated clock net sourced by a combinational pin U8/reg_mux_temp_reg[2]_i_2/O, cell U8/reg_mux_temp_reg[2]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net U8/reg_mux_mode_reg[2]_0 is a gated clock net sourced by a combinational pin U8/WDsel_reg_i_1/O, cell U8/WDsel_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#5 Warning
 Gated clock check  
-Net U8/select_npc_reg_i_2_n_3 is a gated clock net sourced by a combinational pin U8/select_npc_reg_i_2/O, cell U8/select_npc_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net U8/reg_mux_mode_reg[2]_i_2_n_4 is a gated clock net sourced by a combinational pin U8/reg_mux_mode_reg[2]_i_2/O, cell U8/reg_mux_mode_reg[2]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#6 Warning
 Gated clock check  
-Net U9/E[0] is a gated clock net sourced by a combinational pin U9/ALU_reg[3]_i_2/O, cell U9/ALU_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net U9/E[0] is a gated clock net sourced by a combinational pin U9/ALUop_reg[3]_i_2/O, cell U9/ALUop_reg[3]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#7 Warning
 Gated clock check  
-Net U9/FSM_sequential_curr_state_reg[0]_0[0] is a gated clock net sourced by a combinational pin U9/NPC_MODE_reg[2]_i_2/O, cell U9/NPC_MODE_reg[2]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#8 Warning
-Gated clock check  
-Net U9/Sel_Sign is a gated clock net sourced by a combinational pin U9/Sel_Sign_reg_i_2/O, cell U9/Sel_Sign_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net U9/IR_reg[28]_0[0] is a gated clock net sourced by a combinational pin U9/NPC_SEL_reg[2]_i_2/O, cell U9/NPC_SEL_reg[2]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 

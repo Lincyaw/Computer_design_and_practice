@@ -5,39 +5,20 @@ module executs32(
     input [3:0]ALUop,
     input [31:0]first,
     input [31:0]second,
-    output [31:0]answer,
-    output [1:0]zero
+    output reg[31:0]answer,
+    output [1:0]zerog
     ); 
 
 reg [31:0]ans;
-reg [31:0]anst;
-assign answer = anst;
-reg [1:0]zerog;
-assign zero = zerog;
 
 
 always@(posedge clk)
 begin
-    anst <= ans;
+    answer <= ans;
 end
 
 
-
-
-always@*
-begin
-    if (ans==0) begin
-        zerog = `EQUAL;
-    end
-    else if(ans[31]==0)
-    begin
-        zerog = `GREATER;
-    end
-    else
-    begin
-        zerog = `SMALLER;
-    end
-end
+assign zerog = ans==0?`EQUAL:((ans[31]==0)?`GREATER:`SMALLER);
 
 always@*
 begin

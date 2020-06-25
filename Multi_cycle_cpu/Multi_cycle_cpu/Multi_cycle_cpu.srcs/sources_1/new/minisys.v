@@ -15,7 +15,6 @@ module minisys(
     wire [31:0]Instruction;
     wire [1:0]zerog;
     wire [31:0]Npc;
-    wire [31:0]PC4;
     wire [2:0]RegModeSel;
     wire [4:0]WriteAddr;
     wire [31:0]WD;
@@ -66,8 +65,7 @@ module minisys(
     Regdata1,
     Instruction,
     zerog,
-    Npc,
-    PC4
+    Npc
     );
 
 
@@ -79,7 +77,7 @@ module minisys(
     WriteAddr,
     answer,
     read_data,
-    PC4,
+    PC,
     WD,
     WDsel
     );

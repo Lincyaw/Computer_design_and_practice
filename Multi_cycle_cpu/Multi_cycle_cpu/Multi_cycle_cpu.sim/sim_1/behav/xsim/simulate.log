@@ -7,10 +7,8 @@ Block Memory Generator module mycpu_tb.soc_lite.U9.instmem.inst.native_mem_modul
  Block Memory Generator data initialization complete.
 Block Memory Generator module mycpu_tb.soc_lite.U1.ram.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
         [      0 ns] Test is running, debug_wb_pc = 0x00000000
-        [   7017 ns] Test is running, debug_wb_pc = 0x0000000X
 ==============================================================
 Test begin!
-        [   7040 ns] Test is running, debug_wb_pc = 0x00000000
         [   7098 ns] Test is running, debug_wb_pc = 0x00000004
         [   7165 ns] Test is running, debug_wb_pc = 0x00000008
         [   7232 ns] Test is running, debug_wb_pc = 0x0000000c
@@ -2985,4 +2983,6 @@ Warning : input CLKIN1 period and attribute CLKIN1_PERIOD on PLLE2_ADV instance 
         [ 191682 ns] Test is running, debug_wb_pc = 0x00002680
         [ 191748 ns] Test is running, debug_wb_pc = 0x00002684
         [ 191815 ns] Test is running, debug_wb_pc = 0x00002688
-        [ 191882 ns] Test is running,
+        [ 191882 ns] Test is running, debug_wb_pc = 0x0000268c
+        [ 191932 ns] Test is running, debug_wb_pc = 0x00002690
+        [ 191998 ns] Test is running,
