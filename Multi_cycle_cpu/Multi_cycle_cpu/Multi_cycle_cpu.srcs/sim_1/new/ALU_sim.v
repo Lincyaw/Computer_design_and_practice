@@ -31,13 +31,15 @@
 module ALU_sim(
 
     );
-    
+    reg clk=0;
     reg [31:0]val1;
     reg [31:0]val2;
     wire [31:0]answer;
     reg [3:0]op;
     wire zero;
-    executs32 test(op,val1,val2,answer,zero);
+    executs32 test(clk,op,val1,val2,answer,zero);
+    
+   always #10 clk=~clk;
     
     initial begin
     #100 begin op=`ADD;val1=32'd3;val2=32'd4; end  //7
@@ -48,6 +50,9 @@ module ALU_sim(
     #100 begin op=`SRA;val1=32'd3;val2=32'h8000ffff; end  //f0001fff
     #100 begin op=`AND;val1=32'd5;val2=32'hf; end
     #100 begin op=`OR;val1=32'hff;val2=32'd1; end
+    #100 begin op=`XOR;val1=32'hff;val2=32'd1; end
+    #100 begin op=`NOR;val1=32'hff;val2=32'd1; end
+    #100 begin op=`SLT;val1=32'hff;val2=32'd1; end
     
     end
     

@@ -29,16 +29,12 @@ module control32(
     reg select_npc=0;
     reg [2:0]curr_state=0;
     reg [2:0]next_state;
-    assign PC_pre = op==`ins_jal?NPC:PC_curr;
+    assign PC_pre = op==`ins_jal?PC_curr:PC_curr;
 
 always@(negedge clk)
 begin
     PC_curr <= rst?0:(select_npc?NPC:PC_curr);
 end
-
-
-
-
 always@ *
 begin
     case(curr_state)

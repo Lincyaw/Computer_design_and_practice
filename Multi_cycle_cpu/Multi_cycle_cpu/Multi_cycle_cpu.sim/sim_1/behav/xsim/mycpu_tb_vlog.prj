@@ -1,9 +1,8 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../Multi_cycle_cpu.srcs/sources_1/ip/cpuclk" \
-"../../../../Multi_cycle_cpu.srcs/sources_1/ip/ram/sim/ram.v" \
-"../../../../Multi_cycle_cpu.srcs/sources_1/ip/cpuclk/cpuclk_clk_wiz.v" \
-"../../../../Multi_cycle_cpu.srcs/sources_1/ip/cpuclk/cpuclk.v" \
-"../../../../Multi_cycle_cpu.srcs/sources_1/ip/prgrom/sim/prgrom.v" \
+verilog xil_defaultlib  \
+"../../../../Multi_cycle_cpu.srcs/sources_1/ip/ram/ram_sim_netlist.v" \
+"../../../../Multi_cycle_cpu.srcs/sources_1/ip/cpuclk/cpuclk_sim_netlist.v" \
+"../../../../Multi_cycle_cpu.srcs/sources_1/ip/prgrom/prgrom_sim_netlist.v" \
 "../../../../Multi_cycle_cpu.srcs/sources_1/new/ALU_mux.v" \
 "../../../../Multi_cycle_cpu.srcs/sources_1/new/control32.v" \
 "../../../../Multi_cycle_cpu.srcs/sources_1/new/cpuclk.v" \

@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-| Date         : Thu Jun 25 19:41:05 2020
+| Date         : Sun Jun 28 10:37:44 2020
 | Host         : DESKTOP-KMIMTOV running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file minisys_control_sets_placed.rpt
 | Design       : minisys
@@ -24,7 +24,7 @@ Table of Contents
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
 | Number of unique control sets                            |    47 |
-| Unused register locations in slices containing registers |    58 |
+| Unused register locations in slices containing registers |    63 |
 +----------------------------------------------------------+-------+
 
 
@@ -48,12 +48,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             258 |          130 |
+| No           | No                    | No                     |             259 |          118 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |              32 |           17 |
-| Yes          | No                    | No                     |              36 |           18 |
+| Yes          | No                    | No                     |              36 |           21 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |            1056 |          547 |
+| Yes          | Yes                   | No                     |            1058 |          486 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -67,49 +67,49 @@ Table of Contents
 |  U8/Memwrite_reg_i_2_n_4        |                           |                  |                1 |              1 |
 |  U8/flag_reg_i_1_n_4            |                           |                  |                1 |              1 |
 |  U8/reg_mux_mode_reg[2]_0       |                           |                  |                1 |              1 |
-|  U9/IR_reg[28]_0[0]             |                           |                  |                2 |              3 |
-|  U8/reg_mux_mode_reg[2]_i_2_n_4 |                           |                  |                2 |              4 |
+|  U9/IR_reg[28]_0[0]             |                           |                  |                1 |              3 |
+|  U8/reg_mux_mode_reg[2]_i_2_n_4 |                           |                  |                1 |              4 |
 |  U9/E[0]                        |                           |                  |                5 |              7 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_3[0]  | fpga_rst_IBUF    |               24 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_4[0]  | fpga_rst_IBUF    |               22 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/E[0]                   | fpga_rst_IBUF    |               13 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[1]_1[0]  | fpga_rst_IBUF    |               13 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_2[0]  | fpga_rst_IBUF    |               14 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_3[0]  | fpga_rst_IBUF    |               14 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_4[0]  | fpga_rst_IBUF    |               15 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_6[0]  | fpga_rst_IBUF    |               23 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_0[0]  | fpga_rst_IBUF    |               11 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[0]_0[0]  | fpga_rst_IBUF    |               15 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_1[0]  | fpga_rst_IBUF    |               16 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_5[0]  | fpga_rst_IBUF    |               20 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_5[0]  | fpga_rst_IBUF    |               17 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_0[0]  | fpga_rst_IBUF    |               22 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_10[0] | fpga_rst_IBUF    |               13 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_3[0]  | fpga_rst_IBUF    |               17 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_1[0]  | fpga_rst_IBUF    |               15 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_6[0]  | fpga_rst_IBUF    |               24 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_5[0]  | fpga_rst_IBUF    |                9 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_8[0]  | fpga_rst_IBUF    |               12 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_10[0] | fpga_rst_IBUF    |               10 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[0]_0[0]  | fpga_rst_IBUF    |               12 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_6[0]  | fpga_rst_IBUF    |               11 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_4[0]  | fpga_rst_IBUF    |               15 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_2[0]  | fpga_rst_IBUF    |               15 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_0[0]  | fpga_rst_IBUF    |               17 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_5[0]  | fpga_rst_IBUF    |               19 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_0[0]  | fpga_rst_IBUF    |               14 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_1[0]  | fpga_rst_IBUF    |               17 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_7[0]  | fpga_rst_IBUF    |               14 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_1[0]  | fpga_rst_IBUF    |               13 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_12[0] | fpga_rst_IBUF    |               14 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_0[0]  | fpga_rst_IBUF    |               15 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_11[0] | fpga_rst_IBUF    |               23 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[0]_1[0]  | fpga_rst_IBUF    |               12 |             32 |
 |  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_13[0] | fpga_rst_IBUF    |               16 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_1[0]  | fpga_rst_IBUF    |               14 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_3[0]  | fpga_rst_IBUF    |               18 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[1]_0[0]  | fpga_rst_IBUF    |               13 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_3[0]  | fpga_rst_IBUF    |                9 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_4[0]  | fpga_rst_IBUF    |               14 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_2[0]  | fpga_rst_IBUF    |               19 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_9[0]  | fpga_rst_IBUF    |               15 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[1]_1[0]  | fpga_rst_IBUF    |               12 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/E[0]                   | fpga_rst_IBUF    |               13 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_2[0]  | fpga_rst_IBUF    |               13 |             32 |
+|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[3]_4[0]  | fpga_rst_IBUF    |               14 |             32 |
 |  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_5[0]  | fpga_rst_IBUF    |               16 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_3[0]  | fpga_rst_IBUF    |               17 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_8[0]  | fpga_rst_IBUF    |               18 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_7[0]  | fpga_rst_IBUF    |               16 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_11[0] | fpga_rst_IBUF    |               21 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_4[0]  | fpga_rst_IBUF    |               17 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_2[0]  | fpga_rst_IBUF    |               16 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_1[0]  | fpga_rst_IBUF    |               14 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_6[0]  | fpga_rst_IBUF    |               14 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_9[0]  | fpga_rst_IBUF    |               17 |             32 |
-| ~U0/UCLK/inst/clk_out1          | U8/select_npc             | fpga_rst_IBUF    |               11 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_2[0]  | fpga_rst_IBUF    |               24 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[1]_0[0]  | fpga_rst_IBUF    |               15 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[2]_0[0]  | fpga_rst_IBUF    |               18 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[4]_12[0] | fpga_rst_IBUF    |               20 |             32 |
-|  U0/UCLK/inst/clk_out1          | U3/WriteAddr_reg[0]_1[0]  | fpga_rst_IBUF    |               11 |             32 |
-|  n_3_2058_BUFG                  |                           |                  |               25 |             32 |
 |  n_2_0_BUFG                     |                           | fpga_rst_IBUF    |               17 |             32 |
-|  U0/UCLK/inst/clk_out1          | U8/IRWr                   |                  |               18 |             36 |
-|  U0/UCLK/inst/clk_out1          |                           |                  |               19 |             37 |
-|  n_1_109_BUFG                   |                           |                  |               19 |             41 |
-|  n_0_1496_BUFG                  |                           |                  |               27 |             64 |
-| ~U0/UCLK/inst/clk_out1          |                           |                  |               27 |             66 |
+|  n_3_2058_BUFG                  |                           |                  |               17 |             32 |
+| ~U0/UCLK/inst/clk_out1          | U8/select_npc             | fpga_rst_IBUF    |               16 |             34 |
+|  U0/UCLK/inst/clk_out1          | U8/IRWr                   |                  |               21 |             36 |
+|  U0/UCLK/inst/clk_out1          |                           |                  |               21 |             38 |
+|  n_1_109_BUFG                   |                           |                  |               16 |             41 |
+|  n_0_1496_BUFG                  |                           |                  |               24 |             64 |
+| ~U0/UCLK/inst/clk_out1          |                           |                  |               29 |             66 |
 +---------------------------------+---------------------------+------------------+------------------+----------------+
 
 
